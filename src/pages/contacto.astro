@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro"
+import NavBar from "../components/NavBar.astro"
+import Form from "../components/Form.astro"
+---
+<Layout title="Contacto" scroll="auto">
+    <NavBar/>
+    <div class="contacto">
+      <div class="titular">
+        <h1><span class="s1">¿Listo</span> <br>para<span class="s2"> trabajar</span><br><span class="s3">juntos?</span></h1>
+        <div class="correo"><a href="mailto:adjustabledevelopment@gmail.com?Subject=Interesado%20en%20el%20servicio">adjustabledevelopment@gmail.com</a></div>
+        <div class="correo"><a href="https://wa.me/3512401402/?text=Hola!%20Quiero%20trabajar%20con%20ustedes">+5493512401402</a></div>
+      </div>
+      <div class="formulario">
+        <div class="accion">
+          <span></span>
+          <div class="textos">
+            <h2>Estamos listos para hacer tu proyecto realidad.<br>¿Y vos?</h2>
+            <p class="a">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa eos praesentium qui? Aliquam, maiores repellat?</p>
+          </div>
+          <img src="/gif/homero.gif" alt="">
+        </div>
+        <Form/>
+      </div>  
+    </div>
+</Layout>
+
+<style>
+  .titular{
+    font-size: clamp(20px, 5vh, 40px);
+    h1{
+      font-weight: lighter;
+    }
+  }
+  .s1, .s3 {
+      font-weight: lighter;
+    }
+  .s2{
+    font-weight: bold;
+    font-style: italic;
+    cursor:cell;
+    transition: ease 1s;
+  }
+  .s2:hover{
+    transition: ease .5s;
+    background-image: url(/gif/Diseño-sin-título-_2_.gif);
+    background-clip: text;
+    color: transparent;
+  }
+  .correo{
+    margin: 10px 0;
+    cursor: pointer;
+    transition: ease 1s;
+    a{
+      text-decoration: none;
+      color: var(--white);
+      font-size: .5em;
+    }
+    a:hover{
+      color: transparent;
+      transition: ease 1s;
+    }
+  }
+  .correo:hover{
+    transition: ease .5s;
+    background-image: url(/gif/Diseño-sin-título-_2_.gif);
+    background-clip: text;
+    color: transparent;
+  }
+
+
+     .contacto{
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      width: 100vw;
+      padding: 0 5%;
+      height: 100vh;
+      align-items: center;
+      background-color: var(--black);
+      color: var(--white);
+      opacity: 1;
+      overflow: hidden;
+    }
+    .formulario{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 80%;
+      margin: 0;
+      padding: 10% 0;
+    }
+    p{
+        font-size: clamp(12px, 0.5vh, 14px);
+        margin: 0;
+        padding: 0;
+      }
+    .textos{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: auto;
+      h2{
+        font-size: clamp(14px, 3vh, 18px);
+        font-weight: normal;
+        margin: 0 0 3% 0;
+        padding: 0;
+      }
+      
+    }
+    .accion{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: clamp(18%, 10vh, 20%);
+      margin: 10% 0;
+      overflow: hidden;
+      span{
+        padding: 0;
+        min-width: 2px;
+        height: 100%;
+        background: var(--white);
+        margin: 0 5% 0 0;
+      }
+      img{
+        width: 20%;
+      }
+    }
+</style>

@@ -1,0 +1,112 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Header from "../layouts/Header.astro"
+import {slide } from "astro:transitions"
+import Acordion from "../components/Acordion.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<Layout title="Servicios" scroll="auto">
+    <Header title="Servicios" scrollE="10vh" scrollC="20vh"/>
+    <section class="contain">
+        <section class="section1">
+            <div class="title">
+                <h1>Nuestros Servicios</h1>
+                <h2>Descrubre como podemos ayudarte</h2>
+            </div>
+            <Acordion/>
+        </section>
+    </section>
+    <section class="section2">
+        <h3>Somos inferencia</h3>
+    </section>
+    <Footer/>
+</Layout>
+
+<style>
+    .contain{
+        height: auto;
+        width: 100vw;
+        background: var(--white);
+    }
+    .section1{
+        height: 100vh;
+        min-height: 150vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20%;
+        gap: 100px;
+        animation: servicios linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 40%;
+    }
+    @keyframes servicios {
+  from {
+    opacity: 0;
+    filter: blur(20px) brightness(4);
+  }
+  to {
+    opacity: 1;
+  }
+}
+    .title{
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('/gif/esfera.gif');
+        background-repeat: no-repeat;
+        background-position-y: 20%;
+        background-size: 60%;
+    }
+    h1{
+        font-size: clamp(20px, 6vh, 50px);
+        text-align: right;
+        margin: 0 0 1rem 0;
+    }
+    h2{
+        font-family: sans-serif;
+        text-align: right;
+        font-size: clamp(16px, 10vh, 30px);
+        font-style: italic;
+        font-weight: normal;
+        opacity: .5;
+        margin: 0;
+        padding: 0;
+    }
+    .section2{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h3{
+        font-size: clamp(30px, 10vh, 80px);
+        margin: 0;
+        padding: 0;
+        animation: aparecer linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+    }
+    @keyframes aparecer {
+        0%{
+            opacity: 0;
+            filter: blur(20px);
+            color: var(--black);
+        }
+        80%{
+            color: var(--black);
+        }
+        100%{
+            background-image: url(/public/gif/Diseño-sin-título-_2_.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+        }
+    }
+</style>

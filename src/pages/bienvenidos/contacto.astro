@@ -1,0 +1,121 @@
+---
+import Menu from "../../layouts/Menu.astro"
+---
+
+<Menu title="contacto">
+    <div class="menu-contacto">
+        <div class="contacto-contenedor">
+          <div>
+            <img class="contacto-logo" src="/logos/cuadrado.svg" alt="">
+            <a href="#" style="text-decoration: none;"><h1 class="contacto-numero">adjustabledevelopment@gmail.com</h1></a>
+            <a href="#" style="text-decoration: none;"></a><h1 class="contacto-numero">+549351909405</h1></a>
+          </div>
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fab fa-facebook-f icon"></i>    </a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter icon"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+          </ul>
+        </div>
+        <img src="/gif/lineas.gif" alt="" class="gif-contacto">
+      </div>
+</Menu>
+
+<style>
+    .contacto-contenedor{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 100%;
+  height: 100vh;
+  margin-left: 5%;
+  justify-items: start;
+  align-items:last baseline;
+  align-content: center;
+ }
+.gif-contacto{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  object-fit: cover;
+}
+.contacto-logo{
+  height: 10vh;
+  margin: 0 0 10% 0;
+  padding: 0;
+  width: fit-content;
+}
+.contacto-logo:hover{
+  transition: ease .3s;
+  filter: hue(60deg );
+}
+.contacto-numero{
+  font-size: 2vh;
+  color: #000;
+  cursor: pointer;
+}
+.contacto-numero:hover{
+  transition: ease .3s;
+  background-image: url(/gif/Diseño-sin-título-_2_.gif);
+  color: transparent;
+  background-clip: text;
+  object-fit: contain;
+  filter: saturate(1.5);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  margin: 0 10px;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 10%;
+}
+
+
+ul li a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+ul li a:hover .icon {
+  color: #efefef;
+  
+}
+ul li a:hover {
+  top: 0;
+
+  transition: ease 1s;
+  background-image: url(/gif/Diseño-sin-título-_2_.gif);
+  object-fit: contain;
+  filter: saturate(1.5);
+}
+@media(max-width: 700px){
+  .contacto-contenedor{
+    width: 100%;
+  }
+}
+</style>

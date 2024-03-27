@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ViewTransitions, fade } from "astro:transitions";
+import OpcionesMenu from "../components/OpcionesMenu.astro";
+import NavBar from "../components/NavBar.astro";
+---
+
+<Layout title="Bienvenidos" scroll="hidden">
+    <!-- <ViewTransitions /> -->
+    <div
+        class="bienvenida"
+        transition:animate={fade({ duration: "1s" })}
+    >
+        <div class="bar">
+            <NavBar/>
+            <!-- <a href="/" class="peregrino-logo" ><img src="/logos/g37.svg" alt="" class="logo" /></a>
+            <ul>
+                <li><a class="link" href="/nosotros">Nosotros</a></li>
+                <li><a class="link" href="/servicios">Servicios</a></li>
+                <li><a class="link" href="/trabajos">Trabajos</a></li>
+                <li><a class="link" href="/contacto">Contacto</a></li>
+            </ul> -->
+        </div>
+        <div class="bienvenida-textos">
+            <h4 class="bienvenida-hello">¡Hello there!</h4>
+            <h1 class="bienvenida-titulo">
+                <span class="bienvenida-upper">Resolvemos</span> problemas. <br
+                />
+                Impulsamos <span class="bienvenida-upper">ideas</span>. <br />
+                Creamos soluciones que <span class="bienvenida-upper"
+                    >funcionan</span
+                >.
+            </h1>
+            <h4 class="bienvenida-since">_SINCE 2019</h4>
+        </div>
+    </div>
+    <!-- <OpcionesMenu position="5"/> -->
+</Layout>
+<style>
+    .bienvenida {
+        height: 100vh;
+        font-size: clamp(14px, 3vh, 18px);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        color: var(--black);
+        overflow: hidden !important;
+        color: var(--white);
+    }
+    .bienvenida-textos {
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+
+    .bienvenida-titulo {
+        font-family: "IBM Plex Serif";
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+    }
+    .bienvenida-hello {
+        margin: 0;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: normal;
+        font-style: normal;
+    }
+    .bienvenida-since {
+        margin: 1em 0;
+        font-size: 0.8em;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .bienvenida-upper {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    @media (max-width: 700px) {
+        .bienvenida {
+            height: 95vh;
+        }
+    }
+</style>

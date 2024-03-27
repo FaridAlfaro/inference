@@ -1,0 +1,115 @@
+---
+
+---
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+<footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="company__info">
+          <a href="/" class="company__logo"
+            ><img src="/logos/cuadrado.svg" class="imgFooter"
+          /></a>
+          <p class="company__description">
+            Combinamos la pasión por el arte y la tecnología de punta para
+            crear soluciones de software minimalistas e innovadoras.
+          </p>
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <a
+                href="https://www.linkedin.com/in/farid-alfaro-b463381b9/"
+                class="footer__list-link"
+                target="_blank"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a
+                href="https://github.com/FaridAlfaro"
+                class="footer__list-link"
+                target="_blank"
+              >
+                <i class="ri-github-line"></i>
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a
+                href="https://www.instagram.com/farid_alfaro_/"
+                class="footer__list-link"
+                target="_blank"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+            </li>
+          </ul>
+          <span class="copyright">&copy;2024 Kyber Studio. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+<style>
+    .footer {
+    padding-block: 2%;
+    color: #000000;
+  }
+  
+  .footer__container {
+    margin: auto;
+    padding: 0 1.5rem;
+  }
+  
+  .footer__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    row-gap: 2rem;
+  }
+  
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer__list-item {
+    list-style: none;
+  }
+  
+  .footer__list-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.25s;
+  }
+  
+  .footer__list-link:hover {
+    color: #2FB7DB;
+  }
+  
+  .company__info {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .company__description{
+    font-size: 20px;
+  }
+  
+  .imgFooter{
+    color: #efefef;
+    width: 10vw;
+  }
+  
+  .company__info ul {
+    flex-direction: row;
+  }
+  
+  .copyright {
+    margin-top: auto;
+    font-size: 14px;
+  }
+  ul
+</style>

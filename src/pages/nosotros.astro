@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Header from "../layouts/Header.astro"
+import Footer from "../components/Footer.astro"
+import { ViewTransitions, fade, slide } from "astro:transitions"
+import Aa from "../components/Aa.astro"
+---
+<!-- <ViewTransitions/> -->
+<Layout title="Nosotros" scroll="auto">
+    <Header title="Nosotros" scrollE="0%" scrollC="80vh"/>
+    <section class="who-whe-are">
+        <div>
+            <h2>Quienes somos</h2>
+            <span>Quien soy</span>
+        </div>
+        <span>Inferencia: <br> "proceso por el cual se derivan conclusiones a partir de premisas o hipótesis iniciales.​ Cuando una conclusión se sigue de sus premisas o hipótesis de partida, por medio de deducciones lógicas válidas, se dice que las premisas implican la conclusión"</span>
+        <p>
+            Los individuos se unen para crear nuevos colores. Seguimos preguntándonos qué podemos hacer creativamente
+en esta sociedad diversa. 
+<br><br>
+Trabajamos estrechamente con los usuarios y clientes sin importar si son de vídeo, gráficos, digitales, analógicos, etc., planificamos y creamos la solución óptima formando un equipo que se adapta al problema.
+<br>
+<br>
+Nuestro objetivo es el futuro de la creatividad.
+<br>
+<br>
+Cuando las personas se encuentran, se colorea y se visualiza a través de la lógica y la sensibilidad.
+Creatividad sin fronteras
+        </p>
+        <img src="/public/logos/cuadrado.svg" alt="">
+    </section>
+    <section>
+        <div class="bar">
+            <div class="progres"></div>
+        </div>
+        <Aa/>
+    </section>
+    <Footer/>
+</Layout>
+
+<style>
+    .who-whe-are{
+        display: flex;
+        justify-content: center;
+        align-items: left;
+        padding-left: 5%;
+        flex-direction: column;
+        width: 100vw;
+        p{  
+            font-size: clamp(16px, 4ch, 40px);
+            width: 50%;
+            text-align: left;
+        }
+        span{
+            width: 30%;
+            font-size: 18px;
+            opacity: .5;
+            margin-left: calc(90% - 30%);
+        }
+    }
+    section{
+        display: flex;
+        width: 100%;
+        background: #efefef;
+    }
+    .bar{
+        height: auto;
+        margin: 0 auto;
+        width: 4px;
+        background: #cecece;
+        position: relative;
+    }
+    .progres{
+        width: 100%;
+        /* height: 0%; */
+        background: red;
+        position: absolute;
+        animation: progreso linear both;
+        animation-timeline: scroll(block);
+        animation-range: entry 20% cover 100%;
+    }
+    @keyframes progreso {
+        from{
+            height: 0%;
+        }
+        to{
+            height: 100%;
+        }
+    }
+</style>

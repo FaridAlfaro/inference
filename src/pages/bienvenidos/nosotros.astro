@@ -1,0 +1,231 @@
+---
+import Menu from "../../layouts/Menu.astro"
+---
+
+<Menu title = "nosotros">
+    <div class="menu-nosotros menu-content">
+    <div class="nosotros-contenedor">
+      <h2 class="nosotros-titulo">Un lugar donde</h2>
+      <h2 class="nosotros-titulo2">arte, tecnología</h2>
+      <h2 class="nosotros-titulo3">y emociones</h2>
+      <h2 class="nosotros-titulo4">son uno solo</h2>
+    </div>
+    <img src="/gif/fyrz.gif" alt="" class="nosotros-img">
+    <p class="nosotros-texto">Somos un estudio de diseño boutique y desde 2019 ayudamos a nuestros clientes a encontrar soluciones para sus negocios, creando marcas únicas y productos digitales.</p>
+    <a href="/nosotros" class="bienvenida-boton nosotros-boton">Saber más</a>
+    
+  </div>
+</Menu>
+
+<style>
+  .nosotros-contenedor{
+    font-size: clamp(20px, 5vh, 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    gap: %;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+    .nosotros-titulo{
+ text-transform: uppercase;
+  transition: color all .3s;
+  /* position: relative; */
+  /* margin: 4% 0 0 20%; */
+  /* width: 100%; */
+  /* top: -5%;
+  left: 10%; */
+  margin: 0;
+}
+.nosotros-titulo2{
+  margin: 0;
+
+  font-family: 'IBM Plex sans', sans-serif;
+  background-image: url("/gif/Diseño\ sin\ título.gif");
+  background-size: cover;
+  text-transform: uppercase;
+   transition: color all .3s;
+   color: transparent;
+   /* position: absolute; */
+   background-clip: text;
+   /* top: 4%; */
+   /* left: 28%; */
+   /* margin: 0 0 0 40%; */
+  /* width: 100%; */
+ }
+ 
+ .nosotros-titulo3{
+  text-transform: uppercase;
+  margin: 0;
+
+  transition: color all .3s;
+   /* margin: 0 0 0 20%; */
+  /* width: 100%; */
+ }
+ .nosotros-titulo4{
+  font-family: 'IBM Plex sans', sans-serif;
+  background-image: url("/gif/Diseño\ sin\ título.gif");
+  background-size: cover;
+  background-position-x: 20deg;
+  background-clip: text;
+  text-transform: uppercase;
+  margin: 0;
+
+   /* position: absolute; */
+   /* top: 20%; */
+   /* left: 28%; */
+   color: transparent;
+   /* margin: 0 0 0 40%; */
+  /* width: 100%; */
+ }
+ .nosotros-texto{
+  height: fit-content;
+  width: calc(100vw/2);
+  max-width: 350px;
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+  font-size: clamp(14px, 3vh, 20px);
+ }
+ .nosotros-img{
+  position: absolute;
+  right: 3%;
+  height: 30%;
+  width: 50%;
+  bottom: 4%;
+  border-radius: 14px;
+  transition: fadeIn 3s ease;
+ }
+
+@keyframes fadeIn {
+    0%{
+      opacity: 0;
+      filter: brightness(20px);
+    }
+    10%{
+      opacity: 1;
+      filter: brightness(2) blur(10px);
+    }
+   }
+ .nosotros-boton{
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  font-size: 17px;
+ }
+ .menu-content{
+    animation: fadeIn 2s ease
+}
+.menu-nosotros{
+    min-width: 60vw;
+    display: flex;
+    height: 100%;
+}
+.bienvenida-boton{
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14px 0;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: .4;
+    text-transform: uppercase;
+    width: fit-content;
+    
+}
+
+.bienvenida-boton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+.bienvenida-boton:hover::before {
+    width: 100%;
+}
+
+.bienvenida-boton::after {
+    content: "➢";
+    scale: 1;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    margin-left: 100px;
+}
+
+.bienvenida-boton:hover::after {
+    opacity: 1;
+}
+
+.bienvenida-boton:hover {
+    transition: ease-in-out .3s;
+    opacity: 1;
+}
+@media(max-width: 700px){
+  .menu-nosotros{
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+  }
+.nosotros-titulo{
+  margin: 10% 0 0 14%;
+}
+.nosotros-titulo2{
+   margin: 0 0 0 24%;
+ }
+ 
+ .nosotros-titulo3{
+   margin: 0 0 0 14%;
+ }
+ .nosotros-titulo4{
+   margin: 0 0 14vh 24%;
+ }
+ .nosotros-texto{
+  height: fit-content;
+  width: calc(100vw/2);
+  max-width: 350px;
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+  font-size: clamp(14px, 3vw, 24px);
+ }
+ .nosotros-img{
+  position: absolute;
+  right: 3%;
+  height: 30%;
+  width: 50%;
+  bottom: 4%;
+  border-radius: 14px;
+  transition: fadeIn 3s ease;
+ }
+.nosotros-texto{
+  position: relative;
+  bottom: auto;
+}
+.nosotros-boton{
+  position: relative;
+  bottom: 0;
+}
+.nosotros-img{
+  bottom: 5%;
+  width: 60%;
+  height: 20%;
+}
+  }
+</style>
