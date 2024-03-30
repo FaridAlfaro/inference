@@ -4,6 +4,7 @@ import Header from "../layouts/Header.astro"
 import {slide } from "astro:transitions"
 import Acordion from "../components/Acordion.astro"
 import Footer from "../components/Footer.astro"
+import Boton from "../components/boton.astro"
 ---
 
 <Layout title="Servicios" scroll="auto">
@@ -15,6 +16,7 @@ import Footer from "../components/Footer.astro"
                 <h2>Descrubre como podemos ayudarte</h2>
             </div>
             <Acordion/>
+            
         </section>
     </section>
     <!-- <section class="section2">
@@ -29,9 +31,10 @@ import Footer from "../components/Footer.astro"
         width: 100vw;
         background: var(--white);
     }
+    
     .section1{
         height: 100vh;
-        min-height: 150vh;
+        min-height: 120vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -102,7 +105,7 @@ import Footer from "../components/Footer.astro"
             color: var(--black);
         }
         100%{
-            background-image: url(/public/gif/Diseño-sin-título-_2_.gif);
+            background-image: url(/gif/Diseño-sin-título-_2_.gif);
             background-repeat: no-repeat;
             background-size: cover;
             background-clip: text;

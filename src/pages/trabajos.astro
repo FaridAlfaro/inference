@@ -7,11 +7,32 @@ import { ViewTransitions, fade, slide } from "astro:transitions"
 <!-- <ViewTransitions/> -->
 
 <Layout title="Trabajos" scroll="auto">
-    <Header title="Trabajos" color="white" fondo="black"/>
+    <Header title="Trabajos" scrollE="50vh" scrollC="80vh"/>
+    <section>
+        <h1>Aún estamos <span>construyendo</span> aquí</h1>
+        <p>Pronto tendremos novedades.</p>
+    </section>
     <Footer/>
 </Layout>
-
-
 <style>
-    
+    section{
+        height: 100vh;
+        width: 100%;
+        background: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1{
+            font-size: clamp(16px, 3em, 40px);
+            font-weight: normal;
+        }
+        p{
+            font-size: clamp(13px, 1.5em, 18px);
+        }
+        span{
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
 </style>

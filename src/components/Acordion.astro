@@ -1,48 +1,54 @@
 ---
-
+import Boton from "./boton.astro"
 ---
-
+<section>
 <ul>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>Branding</h2>
-    <p>This page wainto HTML, but someday I'll use it since its syntax compliments that of SASS. Regardless, thisSS.</p>
+    <p>Creación de identidad visual y mensaje para una marca con el objetivo de diferenciarla y conectar con su audiencia.</p>
   </li>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>UI/UX</h2>
-    <p>Using the sibling and checked sereen sizes.</p>
+    <p>Diseño de interfaces de usuario centrado en la experiencia del usuario, asegurando una navegación intuitiva y agradable.</p>
   </li>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>Web Development</h2>
-    <p>By making the open  can ack is sis"checked" property of the input element.</p>
+    <p>Construcción de sitios web utilizando tecnologías de punta para crear experiencias memorables.</p>
   </li>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>SEO</h2>
-    <p>By making the open'm accessa cipt (if needed) by changing the "checked" property of the input element.</p>
+    <p>Optimización de sitios web para mejorar su visibilidad en los resultados de búsqueda, aumentando el tráfico orgánico y la relevancia en línea.</p>
   </li>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>Packaging & Logo Design</h2>
-    <p>By making thwhent fallbapen accordion. The accordion can be manipulated with Javascript (if needed) by changing the "checked" property of the input element.</p>
+    <p>Creación de envases atractivos y logotipos distintivos que reflejen la identidad de una marca y la diferencien en el mercado.</p>
   </li>
   <li>
     <input type="checkbox" checked>
     <i></i>
     <h2>Digital Marketing</h2>
-    <p>By making thwhhisowsers that don't recognize :checked. The fallback is simply an open accordion. The accordion can be manipulated with Javascript (if needed) by changing the "checked" property of the input element.</p>
+    <p>Estrategias y tácticas para promocionar productos o servicios utilizando canales digitales como redes sociales, correo electrónico y publicidad en línea.</p>
   </li>
 </ul>
+  <Boton text="Contactanos" url="/contacto" bottom="20vh" left="calc(100vw /2)"/>
+</section>
 
 <style>
-
+  section{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 10vh, 40px);
+  }
 .transition {
   transition: all 0.25s ease-in-out;
 }
