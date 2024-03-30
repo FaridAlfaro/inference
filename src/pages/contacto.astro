@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar.astro"
 import Form from "../components/Form.astro"
 ---
 <Layout title="Contacto" scroll="auto">
-    <NavBar/>
+    <NavBar scrollC="" scrollE=""/>
     <div class="contacto">
       <div class="titular">
         <h1><span class="s1">¿Listo</span> <br>para<span class="s2"> trabajar</span><br><span class="s3">juntos?</span></h1>
@@ -134,4 +134,26 @@ import Form from "../components/Form.astro"
         width: 20%;
       }
     }
+    @media (max-width: 700px) {
+      .contacto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+      }
+      .titular{
+        margin-top: 20%;
+        width: 100%;
+        font-size: clamp(12px, 7vw, 28px);
+      }
+      .formulario{
+      width: 100%;
+      height: 50%;
+      margin: 0 5%;
+      padding: 0;
+    }
+    .accion{
+      display: none;
+    }
+  }
 </style>

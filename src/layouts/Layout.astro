@@ -1,5 +1,5 @@
 ---
-import Pruebas from '../components/Pruebas.astro';
+import Pruebas from '../components/Fondo.astro';
 interface Props {
 	title: string;
 	scroll: string;
@@ -49,9 +49,7 @@ const { title, scroll = 'auto' } = Astro.props;
 	html {
 		font-family: "IBM Plex serif", sans-serif;
 		background: var(--white);
-		/* background-size: 224px; */
-		/* overflow-x: hidden; */
-		/* max-width: 100vw; */
+		max-width: 100vw;
 	}
 	p{
 		font-family: "IBM Plex Sans", sans-serif;

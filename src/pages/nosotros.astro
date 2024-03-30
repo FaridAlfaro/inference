@@ -2,39 +2,37 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../layouts/Header.astro"
 import Footer from "../components/Footer.astro"
-import { ViewTransitions, fade, slide } from "astro:transitions"
 import Aa from "../components/Aa.astro"
 ---
-<!-- <ViewTransitions/> -->
 <Layout title="Nosotros" scroll="auto">
     <Header title="Nosotros" scrollE="0%" scrollC="80vh"/>
     <section class="who-whe-are">
         <div>
-            <h2>Quienes somos</h2>
-            <span>Quien soy</span>
+            <h2 style="margin-left: 5%;">Quienes somos</h2>
         </div>
-        <span>Inferencia: <br> "proceso por el cual se derivan conclusiones a partir de premisas o hipótesis iniciales.​ Cuando una conclusión se sigue de sus premisas o hipótesis de partida, por medio de deducciones lógicas válidas, se dice que las premisas implican la conclusión"</span>
+        <span class="inferir">Inferencia: "proceso por el cual se derivan conclusiones a partir de premisas o hipótesis iniciales.​"</span>
         <p>
-            Los individuos se unen para crear nuevos colores. Seguimos preguntándonos qué podemos hacer creativamente
-en esta sociedad diversa. 
-<br><br>
-Trabajamos estrechamente con los usuarios y clientes sin importar si son de vídeo, gráficos, digitales, analógicos, etc., planificamos y creamos la solución óptima formando un equipo que se adapta al problema.
-<br>
-<br>
-Nuestro objetivo es el futuro de la creatividad.
-<br>
-<br>
-Cuando las personas se encuentran, se colorea y se visualiza a través de la lógica y la sensibilidad.
-Creatividad sin fronteras
+            Somos un estudio de diseño que desde hace años trabaja para cumplir con todas las necesidades creativas de nuestros clientes.  
+        <br><br>
+        Nos destacamos por tener una dinámica de trabajo un poco diferente, estudiamos cada caso individualmente y
+        <span class="destacar">resolvemos</span> cada problema que este tenga. Esto incluye los problemas que detectamos al estudiar cada caso.
+        <span class="destacar">Aún si nuestros clientes no sabían de ellos.</span>
+        <br>
+        <br>
+        Como dirían por ahí, vendemos lo que necesiten, no lo que nos piden.
+        <br>
+        <span class="destacar">Resolvemos problemas</span>.
+        Impulsamos <span class="destacar">ideas</span>.
+        Creamos soluciones que <span class="destacar">funcionan.</span>
+        
         </p>
-        <img src="/public/logos/cuadrado.svg" alt="">
     </section>
-    <section>
+    <!-- <section>
         <div class="bar">
             <div class="progres"></div>
         </div>
         <Aa/>
-    </section>
+    </section> -->
     <Footer/>
 </Layout>
 
@@ -43,25 +41,38 @@ Creatividad sin fronteras
         display: flex;
         justify-content: center;
         align-items: left;
-        padding-left: 5%;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
+        h2{
+            font-size: clamp(30px, 20vw, 80px);
+        }
         p{  
-            font-size: clamp(16px, 4ch, 40px);
+            margin-left: 5%;
+            font-size: clamp(20px, 4ch, 40px);
             width: 50%;
             text-align: left;
+            margin-bottom:20vh;
+
         }
-        span{
+        .inferir{
+            display: inline;
             width: 30%;
-            font-size: 18px;
+            font-size: clamp(12px, 2vw, 18px);
             opacity: .5;
             margin-left: calc(90% - 30%);
+            margin-top: -2%;
         }
+    }
+    .destacar{
+        font-size: clamp(16px, 4ch, 40px);
+        font-family: 'IBM Plex serif', sans-serif;
+        font-style: italic;
+        font-weight: bold;
     }
     section{
         display: flex;
-        width: 100%;
-        background: #efefef;
+        background: var(--white);
+
     }
     .bar{
         height: auto;
@@ -77,7 +88,7 @@ Creatividad sin fronteras
         position: absolute;
         animation: progreso linear both;
         animation-timeline: scroll(block);
-        animation-range: entry 20% cover 100%;
+        animation-range: entry 50% cover 100%;
     }
     @keyframes progreso {
         from{
@@ -85,6 +96,33 @@ Creatividad sin fronteras
         }
         to{
             height: 100%;
+        }
+    }
+    @media (max-width: 700px) {
+        .who-whe-are{
+            h2{
+                font-size: clamp(30px, 6ch, 70px);
+                margin: 10% 0;
+            }
+            p{  
+                font-size: clamp(14px, 4ch, 20px);
+                width: 80%;
+                text-align: left;
+            }
+            .inferir{
+                display: inline;
+                width: 40%;
+                font-size: clamp(12px, 2vw, 18px);
+                opacity: .5;
+                margin-left: calc(90% - 40%);
+                margin-bottom: 5%;
+            }
+        }
+        .destacar{
+            font-size: clamp(14px, 4ch, 20px);
+            font-family: 'IBM Plex serif', sans-serif;
+            font-style: italic;
+            font-weight: bold;
         }
     }
 </style>

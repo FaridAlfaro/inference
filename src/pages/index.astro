@@ -12,7 +12,7 @@ import NavBar from "../components/NavBar.astro";
         transition:animate={fade({ duration: "1s" })}
     >
         <div class="bar">
-            <NavBar/>
+            <NavBar scrollC="100" scrollE="0"/>
             <!-- <a href="/" class="peregrino-logo" ><img src="/logos/g37.svg" alt="" class="logo" /></a>
             <ul>
                 <li><a class="link" href="/nosotros">Nosotros</a></li>
@@ -39,7 +39,7 @@ import NavBar from "../components/NavBar.astro";
 <style>
     .bienvenida {
         height: 100vh;
-        font-size: clamp(14px, 3vh, 18px);
+        font-size: clamp(20px, 1.2vw, 40px);
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -81,7 +81,13 @@ import NavBar from "../components/NavBar.astro";
 
     @media (max-width: 700px) {
         .bienvenida {
-            height: 95vh;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .bienvenida-textos{
+            font-size: clamp(14px, 3.9vw, 16px);
+            width: 90%;
         }
     }
 </style>

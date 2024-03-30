@@ -17,9 +17,9 @@ import Footer from "../components/Footer.astro"
             <Acordion/>
         </section>
     </section>
-    <section class="section2">
+    <!-- <section class="section2">
         <h3>Somos inferencia</h3>
-    </section>
+    </section> -->
     <Footer/>
 </Layout>
 
@@ -107,6 +107,25 @@ import Footer from "../components/Footer.astro"
             background-size: cover;
             background-clip: text;
             color: transparent;
+        }
+    }
+    @media (max-width: 700px) {
+        .contain{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title{
+            height: 40%;
+        }
+        .section1{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            width: 90%;
+            padding: 0;
+            margin-bottom: 200px;
         }
     }
 </style>

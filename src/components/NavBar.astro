@@ -1,4 +1,6 @@
 ---
+import Hamburguesa from './Hamburguesa.astro';
+
 interface Props{
   scrollE: string;
   scrollC: string;
@@ -6,7 +8,7 @@ interface Props{
 const {scrollE, scrollC} = Astro.props
 ---
 
-<nav transition:animate="fade" style=`animation-range: entry ${scrollE} cover ${scrollC};`>
+<nav >
     <a href="/" class="a" style=`animation-range: entry ${scrollE} cover ${scrollC};`>
         <svg class="logo" viewBox="0 0 2061.7214 544.49504">
     <g transform="translate(-945.6613,-1834.9707)">
@@ -120,16 +122,22 @@ const {scrollE, scrollC} = Astro.props
 
 
     </a>
-    <ul >
+    <ul class="menu-regular">
         <li><a class="link" href="/nosotros" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Nosotros</a></li>
         <li><a class="link" href="/servicios" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Servicios</a></li>
         <li><a class="link" href="/trabajos" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Trabajos</a></li>
         <li><a class="link" href="/contacto" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Contacto</a></li>
     </ul>
+    <div class="hamburguesa">
+      <Hamburguesa scrollE={scrollE} scrollC={scrollC}/>
+    </div>
 </nav>
 <slot />
 
 <style>
+  .hamburguesa{
+    display: none;
+  }
   .link {
         color: var(--white);
         font-family: sans-serif;
@@ -172,6 +180,10 @@ const {scrollE, scrollC} = Astro.props
     height: 60px;
     padding: 1% 5%;
     z-index: 3;
+    animation: fondo linear both;
+    animation-timeline: scroll(block);
+    animation-range: entry 15% cover 111vh;
+
 
   ul {
     margin: 0;
@@ -209,13 +221,14 @@ const {scrollE, scrollC} = Astro.props
     opacity: 1;
   }
 }
-
+@keyframes fondo {
   from {
     background: transparent;
   }
   to {
-    /* background-color: var(--white); */
+    background-color: var(--white);
   }
+}
 @keyframes textos {
   to {
     color: var(--black);
@@ -226,5 +239,17 @@ const {scrollE, scrollC} = Astro.props
   to {
     background-color: #000;
   }
+}
+@media (max-width: 700px) {
+  .logo{
+    width: 50vw;
+  }
+  .menu-regular{
+    display: none;
+  }
+  .hamburguesa{
+    display: block;
+  }
+
 }
 </style>
