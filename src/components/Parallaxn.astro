@@ -34,7 +34,7 @@
     </div>
 
 
-<script>
+<!-- <script>
     window.addEventListener('scroll', function() {
     document.querySelectorAll('section div p').forEach(function(element) {
         var scrollTop = window.scrollY || window.pageYOffset;
@@ -44,13 +44,9 @@
         console.log(marginTop);
     });
 });
-</script>
+</script> -->
 <style>
-.footer{
-    position: absolute;
-    width: 100%;
-    z-index: 999;
-}
+
 .fullscreen-bg__video {
 /*     position: absolute; */
     top: 0;
@@ -71,6 +67,9 @@ section{
     /* padding:20px; */
     overflow:hidden;
     width: 100%;
+    animation: desvaneceraaa linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 45%;
 }
 
 section div{
@@ -82,7 +81,7 @@ section div{
 .site-body  {
   width: 100%;
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
  #section1 {
@@ -91,6 +90,7 @@ background-position: center center;
 background-size: cover;
 height: 50vh;
 width: 100vw;
+
 
 }
 
@@ -103,13 +103,7 @@ background-size: cover;
 width: 100%;
 }
 
-.page-wrapper .site-body #section3 .section-text3 {
-position: fixed;
-width: 300px;
-margin: 0 auto;
-padding-top: 100px;
-background: #000000;
-}
+
 
 
 .fullscreen-bg {
@@ -165,16 +159,17 @@ background: #000000;
         /* margin-left: 5%; */
         height: 80vh;
         width: 100vw;
-        
+
             h2{
                 font-size: clamp(30px, 20vw, 80px);
             }
-        .inferir{
+            .inferir{
             width: calc(100vw/6);
             font-size: clamp(12px, 2vw, 18px);
             opacity: .5;
             margin-top: -2%;
         }
+        
     }
     .destacar{
         font-size: clamp(16px, 4ch, 40px);
@@ -207,6 +202,16 @@ background: #000000;
             height: 100%;
         }
     }
+    @keyframes desvaneceraaa {
+		0% {
+			opacity: 0;
+			filter: blur(40px);
+            /* backdrop-filter: blur(20px); */
+		}
+		100% {
+			opacity: 1;
+		}
+	}
     @media (max-width: 700px) {
         section{
             height: 50vh;

@@ -77,4 +77,13 @@ const { title, scroll = 'auto' } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	@keyframes desvanecer {
+		to {
+			opacity: 0;
+			filter: blur(20px) brightness(4);
+		}
+		from {
+			opacity: 1;
+		}
+	}
 </style>
