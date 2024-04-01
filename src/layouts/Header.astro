@@ -10,7 +10,7 @@ const {scrollE, scrollC, title} = Astro.props
 ---
 
   <NavBar scrollE={scrollE} scrollC={scrollC}/>
-  <section>
+  <header>
   <h1 class="titulo" >{title}</h1>
     <div class="container">
       <p>scroll down</p>
@@ -18,7 +18,7 @@ const {scrollE, scrollC, title} = Astro.props
           <span class="scroller"></span>
       </div>
   </div>
-  </section>
+  </header>
 <style>
   .titulo{
     /* animation-delay: 1s; */
@@ -76,7 +76,7 @@ const {scrollE, scrollC, title} = Astro.props
         }
         
     }
-    section{
+    header{
         position: relative;
         height: 100vh;
         width: 100vw;
@@ -86,9 +86,9 @@ const {scrollE, scrollC, title} = Astro.props
         align-items: center;
         gap: -100px;
         z-index: 2;
-        animation: desvanecer linear both;
+        animation: pintarBlanco linear both;
         animation-timeline: scroll(block);
-        animation-range: entry 0vh cover 50vh;
+        animation-range: entry 0% cover 50vh;
         background: transparent;
         
     h1 {
@@ -101,7 +101,7 @@ const {scrollE, scrollC, title} = Astro.props
     
   }
 
-@keyframes desvanecer {
+@keyframes pintarBlanco {
   to {
     background: #efefef;
 

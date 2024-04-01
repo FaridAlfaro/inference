@@ -1,5 +1,5 @@
 ---
-import Boton from "./boton.astro"
+import Boton from "./Boton.astro"
 ---
 <section>
 <ul>
@@ -214,6 +214,12 @@ input[type="checkbox"]:checked ~ i:after {
   100% {
     transform-origin: top center;
     transform: rotateX(0deg);
+  }
+}
+
+@media (max-width: 700px) {
+  li{
+    font-size: .7em;
   }
 }
 </style>

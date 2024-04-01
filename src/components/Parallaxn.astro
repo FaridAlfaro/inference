@@ -1,0 +1,242 @@
+---
+
+---
+        <div class="site-body">
+            <section>
+                <div class="somos">
+                    <h2>Quienes somos</h2>
+                </div>
+            </section>
+            <section id="section1">
+                <!-- <video loop muted autoplay class="fullscreen-bg__video"> -->
+                    <!-- <source src="/public/video/inference.mp4" type="video/mp4"> -->
+            </section>
+            <section id="section2" class="who-whe-are" >
+                <p>
+                    Somos un estudio de diseño que desde hace años trabaja para cumplir con todas las necesidades creativas de nuestros clientes.  
+                <br><br>
+                Nos destacamos por tener una dinámica de trabajo un poco diferente, estudiamos cada caso individualmente y
+                <span class="destacar">resolvemos</span> cada problema que este tenga. Esto incluye los problemas que detectamos al estudiar cada caso.
+                <span class="destacar">Aun si nuestros clientes no sabían de ellos.</span>
+                <br>
+                <br>
+                Como dirían por ahí, vendemos lo que necesiten, no lo que nos piden.
+                <br>
+                <span class="destacar">Resolvemos problemas</span>.
+                Impulsamos <span class="destacar">ideas</span>.
+                Creamos soluciones que <span class="destacar">funcionan.</span>
+                
+                </p>
+            </section>
+            <section id="section3">
+                
+            </section>
+    </div>
+
+
+<script>
+    window.addEventListener('scroll', function() {
+    document.querySelectorAll('section div p').forEach(function(element) {
+        var scrollTop = window.scrollY || window.pageYOffset;
+        var parentTop = (element.parentElement as HTMLElement).getBoundingClientRect().top + window.pageYOffset;
+        var marginTop = scrollTop - parentTop;
+        (element as HTMLElement).style.marginTop = marginTop + 'px';
+        console.log(marginTop);
+    });
+});
+</script>
+<style>
+.footer{
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+.fullscreen-bg__video {
+/*     position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+    {
+    height:100%;
+}
+
+body,html, .site-body, section{
+    height:100%;
+    width: 100%;
+
+}
+section{
+    /* padding:20px; */
+    overflow:hidden;
+    width: 100%;
+}
+
+section div{
+    /* font-size:120px; */
+    height: 100%;
+}
+
+
+.site-body  {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+ #section1 {
+background: url(/public/video/inference.jpg) no-repeat fixed;
+background-position: center center;
+background-size: cover;
+height: 50vh;
+width: 100vw;
+
+}
+
+
+
+.site-body #section3 {
+background: url(/public/gif/Diseño\ sin\ título.gif) no-repeat fixed;
+background-position: center center;
+background-size: cover;
+width: 100%;
+}
+
+.page-wrapper .site-body #section3 .section-text3 {
+position: fixed;
+width: 300px;
+margin: 0 auto;
+padding-top: 100px;
+background: #000000;
+}
+
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.who-whe-are{
+        z-index: 3000;
+        padding: 10% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+        h2{
+            font-size: clamp(30px, 20vw, 80px);
+        }
+        p{    
+            margin-left: 5%;
+            font-size: clamp(20px, 4ch, 40px);
+            width: 50%;
+            text-align: left;
+        }
+        
+    }
+    .somos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* margin-left: 5%; */
+        height: 80vh;
+        width: 100vw;
+        
+            h2{
+                font-size: clamp(30px, 20vw, 80px);
+            }
+        .inferir{
+            width: calc(100vw/6);
+            font-size: clamp(12px, 2vw, 18px);
+            opacity: .5;
+            margin-top: -2%;
+        }
+    }
+    .destacar{
+        font-size: clamp(16px, 4ch, 40px);
+        font-family: 'IBM Plex serif', sans-serif;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .bar{
+        height: auto;
+        margin: 0 auto;
+        width: 4px;
+        background: #cecece;
+        position: relative;
+    }
+    .progres{
+        width: 100%;
+        /* height: 0%; */
+        /* background: red; */
+        position: absolute;
+        animation: progreso linear both;
+        animation-timeline: scroll(block);
+        animation-range: entry 50% cover 100%;
+    }
+    @keyframes progreso {
+        from{
+            height: 0%;
+        }
+        to{
+            height: 100%;
+        }
+    }
+    @media (max-width: 700px) {
+        section{
+            height: 50vh;
+        }
+        .somos{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2{
+                font-size: clamp(14px, 4ch, 40px);
+                /* margin: 10% 0; */
+            }
+        }
+        #section1 {
+                background: url(/public/video/inferencev.jpg) no-repeat fixed;
+                background-position: center center;
+                background-size: cover;
+                height: 40vh;
+            }
+        .who-whe-are p{  
+                font-size: clamp(14px, 4ch, 20px);
+                width: 80%;
+                text-align: left;
+            }
+        .destacar{
+            font-size: clamp(14px, 4ch, 20px);
+            font-family: 'IBM Plex serif', sans-serif;
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
+</style>
