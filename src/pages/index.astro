@@ -6,20 +6,11 @@ import NavBar from "../components/NavBar.astro";
 ---
 
 <Layout title="Bienvenidos" scroll="hidden">
-    <!-- <ViewTransitions /> -->
     <div
         class="bienvenida"
-        transition:animate={fade({ duration: "1s" })}
     >
         <div class="bar">
             <NavBar scrollC="100" scrollE="0"/>
-            <!-- <a href="/" class="peregrino-logo" ><img src="/logos/g37.svg" alt="" class="logo" /></a>
-            <ul>
-                <li><a class="link" href="/nosotros">Nosotros</a></li>
-                <li><a class="link" href="/servicios">Servicios</a></li>
-                <li><a class="link" href="/trabajos">Trabajos</a></li>
-                <li><a class="link" href="/contacto">Contacto</a></li>
-            </ul> -->
         </div>
         <div class="bienvenida-textos">
             <h4 class="bienvenida-hello">¡Hello there!</h4>
@@ -34,7 +25,6 @@ import NavBar from "../components/NavBar.astro";
             <h4 class="bienvenida-since">_SINCE 2019</h4>
         </div>
     </div>
-    <!-- <OpcionesMenu position="5"/> -->
 </Layout>
 <style>
     .bienvenida {

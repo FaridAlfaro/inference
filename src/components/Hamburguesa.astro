@@ -13,6 +13,7 @@ const {scrollE, scrollC} = Astro.props
     </div>
     <div class="menu-overlay">
       <ul class="nav">
+        <li><a href="/home">Home</a></li>
         <li><a href="/nosotros">Nosotros</a></li>
         <li><a href="/servicios">Servicios</a></li>
         <li><a href="/trabajos">Trabajos</a></li>
@@ -59,16 +60,9 @@ const {scrollE, scrollC} = Astro.props
   opacity: 1;
   width: 100%;
   left: 0;
-  animation: spans linear both;
-  animation-timeline: scroll(block);
-  /* animation-range: entry 15% cover 50vh; */
   
 }
-@keyframes spans {
-  to {
-    background: var(--black);
-  }
-}
+
 .hamburger span:nth-child(1) {
   top: 0px;
 }
@@ -118,6 +112,7 @@ const {scrollE, scrollC} = Astro.props
   transition: visibility 0.5s ease, opacity 1s ease;
   display: none;
   transition: ease .5s;
+  
 
 }
 .menu-overlay.open {
@@ -141,13 +136,13 @@ const {scrollE, scrollC} = Astro.props
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  
 }
 .open .nav li {
   -moz-transform: translateY(0);
   -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
-  
 }
 .open .nav li:nth-child(1) {
   -webkit-transition-delay: 100ms;

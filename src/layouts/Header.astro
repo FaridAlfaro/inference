@@ -11,13 +11,13 @@ const {scrollE, scrollC, title} = Astro.props
 
   <NavBar scrollE={scrollE} scrollC={scrollC}/>
   <header>
-  <h1 class="titulo" >{title}</h1>
-    <div class="container">
-      <p>scroll down</p>
-      <div class="fondo">
-          <span class="scroller"></span>
+      <h1 class="titulo" >{title}</h1>
+      <div class="container">
+          <span>scroll down</span>
+          <div class="fondo">
+              <span class="scroller"></span>
+          </div>
       </div>
-  </div>
   </header>
 <style>
  
@@ -42,18 +42,20 @@ const {scrollE, scrollC, title} = Astro.props
         align-items: center;
         justify-content: center;
         position: absolute;
-        bottom: 10%;
-        p{
-            padding: 0;
-            font-size: clamp(10px, 2vh, 13px);
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        span{
+            margin-bottom: 20px;
+            font-size: clamp(16px, 2vh, 20px);
             font-style: normal;
             font-family: serif;
             color: var(--white);
         }
     }
     .fondo{
-        max-height: 20px;
-        min-height: 20px;
+        max-height: 25px;
+        min-height: 25px;
         width: 10px;
         position: relative;
         display: flex;
@@ -80,23 +82,17 @@ const {scrollE, scrollC, title} = Astro.props
         
     }
     header{
-        position: relative;
         height: 100vh;
-        width: 100vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: -100px;
-        z-index: 2;
         animation: pintarBlanco linear both;
         animation-timeline: scroll(block);
         animation-range: entry 0% cover 50vh;
-        background: transparent;
         
     h1 {
-      color: var(--white);
-        margin: 0;
+        color: var(--white);
         font-size: 4em;
         text-transform: uppercase;
         text-align: center;
@@ -106,7 +102,10 @@ const {scrollE, scrollC, title} = Astro.props
 
 @keyframes pintarBlanco {
   to {
-    background: #efefef;
+    filter: blur(20px);
+    transform: translateY(20%);
+    opacity: 0;
+    /* background: #efefef; */
 
   }
 }

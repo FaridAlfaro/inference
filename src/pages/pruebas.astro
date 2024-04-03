@@ -1,241 +1,278 @@
 ---
-import Header from "../layouts/Header.astro"
-import Footer from "../components/Footer.astro"
-import Layout from "../layouts/Layout.astro"
+import Fondo from "../components/Fondo.astro";
+
+import Layout from "../layouts/Layout.astro";
 ---
-        <div class="site-body">
-            <section>
-                <div class="somos">
-                    <h2>Quienes somos</h2>
-                </div>
-            </section>
-            <section id="section1">
-                <!-- <video loop muted autoplay class="fullscreen-bg__video"> -->
-                    <!-- <source src="/public/video/inference.mp4" type="video/mp4"> -->
-            </section>
-            <section id="section2" class="who-whe-are" >
-                <p>
-                    Somos un estudio de diseño que desde hace años trabaja para cumplir con todas las necesidades creativas de nuestros clientes.  
-                <br><br>
-                Nos destacamos por tener una dinámica de trabajo un poco diferente, estudiamos cada caso individualmente y
-                <span class="destacar">resolvemos</span> cada problema que este tenga. Esto incluye los problemas que detectamos al estudiar cada caso.
-                <span class="destacar">Aun si nuestros clientes no sabían de ellos.</span>
-                <br>
-                <br>
-                Como dirían por ahí, vendemos lo que necesiten, no lo que nos piden.
-                <br>
-                <span class="destacar">Resolvemos problemas</span>.
-                Impulsamos <span class="destacar">ideas</span>.
-                Creamos soluciones que <span class="destacar">funcionan.</span>
-                
-                </p>
-            </section>
-            <section id="section3">
-                
-            </section>
-    </div>
+<body>
+    <div class="gradient-bg">
+        <svg class="noise">
+            <filter id='noiseFilter'>
+              <feTurbulence 
+                type='fractalNoise' 
+                baseFrequency='0.6' 
+                stitchTiles='stitch'/>
+               <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                  <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
+                  <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+            </filter>
+          </svg>
+    
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+              <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+          </defs>
+        </svg>
+        <div class="gradients-container">
+          <div class="g1"></div>
+          <div class="g2"></div>
+          <div class="g3"></div>
+          <div class="g4"></div>
+          <div class="g5"></div>
+          <div class="interactive"></div>
+        </div>
+      </div>
+      <slot /> 
+  <script>document.addEventListener('DOMContentLoaded', () => {
+    const interBubble = document.querySelector<HTMLDivElement>('.interactive')!;
+    let curX = 0;
+    let curY = 0;
+    let tgX = 0;
+    let tgY = 0;
 
+    function move() {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        requestAnimationFrame(() => {
+            move();
+        });
+    }
 
-<script>
-    window.addEventListener('scroll', function() {
-    document.querySelectorAll('section div p').forEach(function(element) {
-        var scrollTop = window.scrollY || window.pageYOffset;
-        var parentTop = element.parentElement.offsetTop;
-        var marginTop = scrollTop - parentTop;
-        element.style.marginTop = marginTop + 'px';
-        console.log(marginTop);
+    window.addEventListener('mousemove', (event) => {
+        tgX = event.clientX;
+        tgY = event.clientY;
     });
-});
-</script>
+
+    move();
+});</script>
+    
+</body>
+</html>
 <style>
-.footer{
-    position: absolute;
-    width: 100%;
-    z-index: 999;
-}
-.fullscreen-bg__video {
-/*     position: absolute; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-    {
-    height:100%;
+
+:root {
+--color-bg1: #a19c9c;
+--color-bg2: #bc3a70;
+--color1: 18, 113, 255;
+--color2: 221, 74, 255;
+--color3: 100, 220, 255;
+--color4: 200, 50, 50;
+--color5: 180, 180, 50;
+--color-interactive: 140, 100, 255;
+--circle-size: 150%;
+--blending: hard-light;
 }
 
-body,html, .site-body, section{
-    height:100%;
-    width: 100%;
-
+@keyframes moveInCircle {
+0% {
+transform: rotate(0deg);
 }
-section{
-    /* padding:20px; */
-    overflow:hidden;
-    width: 100%;
+50% {
+transform: rotate(180deg);
 }
-
-section div{
-    /* font-size:120px; */
-    height: 100%;
+100% {
+transform: rotate(360deg);
+}
 }
 
-
-.site-body  {
-  width: 100%;
-  position: relative;
-  margin: 0 auto;
+@keyframes moveVertical {
+0% {
+transform: translateY(-50%);
+}
+50% {
+transform: translateY(50%);
+}
+100% {
+transform: translateY(-50%);
+}
 }
 
- #section1 {
-background: url(/public/video/inference.jpg) no-repeat fixed;
-background-position: center center;
-background-size: cover;
-height: 50vh;
-
+@keyframes moveHorizontal {
+0% {
+transform: translateX(-50%) translateY(-10%);
 }
-
-
-
-.site-body #section3 {
-background: url(/public/gif/Diseño\ sin\ título.gif) no-repeat fixed;
-background-position: center center;
-background-size: cover;
+50% {
+transform: translateX(50%) translateY(10%);
 }
-
-.page-wrapper .site-body #section3 .section-text3 {
-position: fixed;
-width: 300px;
-margin: 0 auto;
-padding-top: 100px;
-background: #000000;
+100% {
+transform: translateX(-50%) translateY(-10%);
+}
 }
 
 
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+.gradient-bg {
+width: 100vw;
+height: 100%;
+position: absolute;
+z-index: -2;
+overflow: hidden;
+background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+/* filter: url(noiseFilter); */
+top: 0;
+left: 0;
+
+svg {
+display: none;
 }
 
 
+.gradients-container {
+filter: url(#goo) blur(100px) url(#noiseFilter);
+width: 100vw;
+height: 100%;
+}
+
+.g1 {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+
+width: var(--circle-size);
+height: var(--circle-size);
+top: calc(50% - var(--circle-size) / 2);
+left: calc(50% - var(--circle-size) / 2);
+
+transform-origin: center center;
+animation: moveVertical 20s ease infinite;
+
+opacity: 1;
+}
+
+.g2 {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+
+width: var(--circle-size);
+height: var(--circle-size);
+top: calc(50% - var(--circle-size) / 2);
+left: calc(50% - var(--circle-size) / 2);
+
+transform-origin: calc(50% - 400px);
+animation: moveInCircle 10s reverse infinite;
+
+opacity: 1;
+}
+
+.g3 {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+
+width: var(--circle-size);
+height: var(--circle-size);
+top: calc(50% - var(--circle-size) / 2 + 200px);
+left: calc(50% - var(--circle-size) / 2 - 500px);
+
+transform-origin: calc(50% + 400px);
+animation: moveInCircle 20s linear infinite;
+
+opacity: 1;
+}
+
+.g4 {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+
+width: var(--circle-size);
+height: var(--circle-size);
+top: calc(50% - var(--circle-size) / 2);
+left: calc(50% - var(--circle-size) / 2);
+
+transform-origin: calc(50% - 200px);
+animation: moveHorizontal 6s ease infinite;
+
+opacity: 1;
+}
+
+.g5 {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+
+width: calc(var(--circle-size) * 2);
+height: calc(var(--circle-size) * 2);
+top: calc(50% - var(--circle-size));
+left: calc(50% - var(--circle-size));
+
+transform-origin: calc(50% - 800px) calc(50% + 200px);
+animation: moveInCircle 10s ease infinite;
+
+opacity: 1;
+}
+
+.interactive {
+position: absolute;
+background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+mix-blend-mode: var(--blending);
+width: 100%;
+height: 100%;
+top: -50%;
+left: -50%;
+opacity: 0.7;
+}
+}
+:root {
+--bg: #efefef;
+--text: #151515;
+--yellow: #EDB74D;
+--red: #EB6666;
+--green: #6FB18A; 
+}
 
 
+body::before,
+body::after {
+position: absolute;
+left: 0;
+top: 0;
+content: '';
+width: 100%;
+height: 100%;
+z-index: -1;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+opacity: 40%;
+}
+
+body::before {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background: transparent;
+filter: url(#noiseFilter);
+width: 100vw;
+min-width: 100vw;
+}
 
 
+/* Blobs */
+.blob-cont {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: -1;
+height: 500px;
+width: 500px;
+position: relative;
+right: 5em;
+}
 
-
-
-
-
-
-
-
-
-
-
-.who-whe-are{
-        z-index: 3000;
-        padding: 10% 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: auto;
-        width: 100%;
-        h2{
-            font-size: clamp(30px, 20vw, 80px);
-        }
-        p{    
-            margin-left: 5%;
-            font-size: clamp(20px, 4ch, 40px);
-            width: 50%;
-            text-align: left;
-        }
-        
-    }
-    .somos{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        /* margin-left: 5%; */
-        height: 80vh;
-        width: 100vw;
-        
-            h2{
-                font-size: clamp(30px, 20vw, 80px);
-            }
-        .inferir{
-            width: calc(100vw/6);
-            font-size: clamp(12px, 2vw, 18px);
-            opacity: .5;
-            margin-top: -2%;
-        }
-    }
-    .destacar{
-        font-size: clamp(16px, 4ch, 40px);
-        font-family: 'IBM Plex serif', sans-serif;
-        font-style: italic;
-        font-weight: bold;
-    }
-    section{
-        display: flex;
-        background: var(--white);
-
-    }
-    .bar{
-        height: auto;
-        margin: 0 auto;
-        width: 4px;
-        background: #cecece;
-        position: relative;
-    }
-    .progres{
-        width: 100%;
-        /* height: 0%; */
-        /* background: red; */
-        position: absolute;
-        animation: progreso linear both;
-        animation-timeline: scroll(block);
-        animation-range: entry 50% cover 100%;
-    }
-    @keyframes progreso {
-        from{
-            height: 0%;
-        }
-        to{
-            height: 100%;
-        }
-    }
-    @media (max-width: 700px) {
-        .who-whe-are{
-            h2{
-                font-size: clamp(30px, 6ch, 70px);
-                margin: 10% 0;
-            }
-            p{  
-                font-size: clamp(14px, 4ch, 20px);
-                width: 80%;
-                text-align: left;
-            }
-            .inferir{
-                display: inline;
-                width: 40%;
-                font-size: clamp(12px, 2vw, 18px);
-                opacity: .5;
-                margin-left: calc(90% - 40%);
-                margin-bottom: 5%;
-            }
-        }
-        .destacar{
-            font-size: clamp(14px, 4ch, 20px);
-            font-family: 'IBM Plex serif', sans-serif;
-            font-style: italic;
-            font-weight: bold;
-        }
-    }
 </style>

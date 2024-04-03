@@ -7,7 +7,7 @@ const {positionX, positionY} = Astro.props
 ---
 <div class="container" style={`right:${positionX}%; bottom: ${positionY}%`}>
 
-    <p>scroll down</p>
+    <h4>scroll down</h4>
     <div class="fondo">
         <span class="scroller"></span>
     </div>
@@ -20,7 +20,7 @@ const {positionX, positionY} = Astro.props
         align-items: center;
         justify-content: center;
         position: sticky;
-        p{
+        s{
             margin: clamp(10px, 2vh, 13px) 0;
             padding: 0;
             font-size: clamp(10px, 2vh, 13px);

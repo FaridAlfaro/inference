@@ -158,9 +158,7 @@ const {scrollE, scrollC} = Astro.props
         height: 2px; /* Grosor del subrayado */
         background-color: var(--white); /* Color del subrayado */
         transition: width 0.3s; /* Efecto de transición para el ancho */
-        animation: textos-sub linear both;
-    animation-timeline: scroll(block);
-    /* animation-range: entry 15% cover 40%; */
+        
       }
 
     .link:hover::after {
@@ -220,23 +218,11 @@ const {scrollE, scrollC} = Astro.props
   to {
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
 }
-@keyframes textos {
-  to {
-    color: var(--black);
-    fill: var(--black);
-  }
-}
-@keyframes textos-sub {
-  to {
-    background-color: #000;
-  }
-}
+
 @media (max-width: 700px) {
   .logo{
     width: 50vw;
