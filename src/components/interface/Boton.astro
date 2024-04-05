@@ -1,0 +1,68 @@
+---
+interface Props {
+    text: string;
+    bottom: string;
+    left: string;
+    url: string;
+}
+const { text, bottom, left, url } = Astro.props
+---
+<div class="servicios-boton-container" style=`bottom: ${bottom}; left:${left} ;`>
+    <a href={url} class="servicios-boton">{text}</a>
+  </div>
+
+<style>
+.servicios-boton {
+    font-size: 1.5em;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 14px 0;
+  text-decoration: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.4;
+  text-transform: uppercase;
+  position: relative; /* Agrega esta línea para establecer un contexto de posición para los pseudo-elementos */
+}
+
+.servicios-boton::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  transition: width 0.3s ease;
+}
+
+.servicios-boton:hover::before {
+  width: 100%;
+}
+
+.servicios-boton::after {
+  content: "➢";
+  scale: 1;
+  position: relative; /* Cambia relative a absolute */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 50%;
+}
+
+.servicios-boton:hover::after {
+  opacity: 1;
+}
+
+.servicios-boton:hover {
+  transition: ease-in-out 0.3s;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .servicios-boton{
+    font-size: 1em;
+  }
+}
+</style>

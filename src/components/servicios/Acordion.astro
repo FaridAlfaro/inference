@@ -1,0 +1,227 @@
+---
+import Boton from "../interface/Boton.astro"
+---
+<section>
+<ul>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>Branding</h2>
+    <p>Creación de identidad visual y mensaje para una marca con el objetivo de diferenciarla y conectar con su audiencia.</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>UI/UX</h2>
+    <p>Diseño de interfaces de usuario centrado en la experiencia del usuario, asegurando una navegación intuitiva y agradable.</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>Web Development</h2>
+    <p>Construcción de sitios web utilizando tecnologías de punta para crear experiencias memorables.</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>SEO</h2>
+    <p>Optimización de sitios web para mejorar su visibilidad en los resultados de búsqueda, aumentando el tráfico orgánico y la relevancia en línea.</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>Packaging & Logo Design</h2>
+    <p>Creación de envases atractivos y logotipos distintivos que reflejen la identidad de una marca y la diferencien en el mercado.</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>Digital Marketing</h2>
+    <p>Estrategias y tácticas para promocionar productos o servicios utilizando canales digitales como redes sociales, correo electrónico y publicidad en línea.</p>
+  </li>
+</ul>
+  <Boton text="Contactanos" url="/contacto" bottom="20vh" left="calc(100vw /2)"/>
+</section>
+
+<style>
+  section{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 10vh, 40px);
+
+  }
+.transition {
+  transition: all 0.25s ease-in-out;
+}
+
+.flipIn {
+  animation: flipdown 0.5s ease both;
+}
+
+.no-select {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+h2 {
+  font-size: 2em;
+  line-height: 34px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  color: var(--white);
+}
+
+/* Paragraph Styles */
+p {
+  
+  color: var(--white);
+  font-size: .9em;
+  line-height: 26px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  max-height: 800px;
+  transition: all 0.25s ease-in-out;
+  opacity: 1;
+  transform: translate(0, 0);
+  margin-top: 14px;
+  z-index: 2;
+}
+
+/* List Styles */
+ul {
+  width: 100%;
+  min-width: 30vw;
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
+  
+}
+
+li {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: italic;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  opacity: .4;
+  padding-bottom: 4px;
+  padding-top: 18px;
+  border-bottom: 1px solid var(--white);
+  /* animation: flipdown 0.5s ease both; */
+  transition: ease .6s;
+
+}
+li:hover{
+  opacity: 1;
+}
+
+li:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+
+li:nth-of-type(3) {
+  animation-delay: 1.0s;
+}
+
+li:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 16px;
+  right: 0;
+}
+
+li i:before,
+li i:after {
+  content: "";
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  background-color: var(--white);
+  width: 3px;
+  height: 9px;
+}
+
+li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+
+li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;input{
+}
+}
+
+input[type="checkbox"]:checked ~ p {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+
+input[type="checkbox"]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+
+input[type="checkbox"]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+/* Keyframes */
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(8deg);
+  }
+  83% {
+    transform: rotateX(6deg);
+  }
+  92% {
+    transform: rotateX(-3deg);
+  }
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}
+
+@media (max-width: 700px) {
+  li{
+    font-size: .7em;
+  }
+}
+</style>

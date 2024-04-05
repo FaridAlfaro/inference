@@ -1,0 +1,134 @@
+---
+
+---
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="company__info">
+          <h4 class="company__description">
+            Combinamos la pasión por el arte y la tecnología de punta para
+            crear soluciones de software minimalistas e innovadoras.
+          </h4>
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <a
+                href="https://wa.me/3512401402/?text=Hola!%20Quiero%20trabajar%20con%20ustedes"
+                class="footer__list-link"
+                target="_blank"
+              >
+              +54 9 351 240-1402
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a
+                href="https://wa.me/3512401402/?text=Hola!%20Quiero%20trabajar%20con%20ustedes"
+                class="footer__list-link"
+                target="_blank"
+              >
+              adjustabledevelopment@gmail.com
+              </a>
+            </li>
+           
+          </ul>
+          <span class="copyright">&copy;2024 Inference Studio. Todos los derechos reservados.</span>
+        </div>
+    </div>
+  </footer>
+<style>
+    .footer {
+    background: url("/public/video/nosotros.gif") no-repeat fixed;
+    background-size: cover;
+    background-position: center center;
+    color: var(--white);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    animation: aparecer linear both;
+    animation-timeline: view();
+    animation-range: entry 80vh cover 100vh;
+    max-height: 100vh;
+	}
+	@keyframes aparecer {
+		0% {
+			opacity: 0;
+			filter: blur(20px);
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+  .footer__container {
+    background-color: #00000076;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer__list-item {
+    list-style: none;
+  }
+  
+  .footer__list-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.25s;
+  }
+  
+  .footer__list-link:hover {
+    color: #2FB7DB;
+  }
+  
+  .company__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding-top:4%;
+    gap: 1rem;
+  }
+  .company__description{
+    font-size: 3em;
+    margin: auto;
+  }
+  
+  .imgFooter{
+    filter: invert(1);
+    height: 5vh;
+  }
+  
+  .company__info ul {
+    flex-direction: row;
+  }
+  
+  .copyright {
+    margin-top: auto;
+    font-size: 1.4em;
+  }
+  @media (max-width: 700px) {
+    .imgFooter{
+      height: 5vh;
+    }
+    .company__description{
+      font-size: 1em;
+    }
+  }
+</style>

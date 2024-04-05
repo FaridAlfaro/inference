@@ -1,16 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { ViewTransitions, fade } from "astro:transitions";
-import OpcionesMenu from "../components/OpcionesMenu.astro";
-import NavBar from "../components/NavBar.astro";
+import NavBar from "../components/interface/NavBar.astro";
+import Footer from "../components/interface/Footer.astro";
+import Card from "../components/index/Card.astro";
 ---
 
-<Layout title="Bienvenidos" scroll="hidden">
-    <div
-        class="bienvenida"
-    >
+<Layout title="Bienvenidos" scroll="none">
+    <section class="bienvenida">
         <div class="bar">
-            <NavBar scrollC="100" scrollE="0"/>
+            <NavBar scrollC="none" scrollE="none"/>
         </div>
         <div class="bienvenida-textos">
             <h4 class="bienvenida-hello">¡Hello there!</h4>
@@ -24,9 +22,29 @@ import NavBar from "../components/NavBar.astro";
             </h1>
             <h4 class="bienvenida-since">_SINCE 2019</h4>
         </div>
-    </div>
+    </section>
+    <Card/>
+    <section class="quehacemos">
+        <h1>Impulsamos marcas, contamos historias</h1>
+        <div>
+            <img src="/public/gif/PYh.gif" alt="">
+        </div>
+    </section>
+    
+    <Footer/>
 </Layout>
 <style>
+    section{
+        color: var(--white);
+    }
+    .sep-title{
+        color: var(--white);
+        width: 100%;
+        display: inline-block;
+        margin-left: 5%;
+        font-size: clamp(20px, 3em, 60px);
+        font-weight: normal;
+    }
     .bienvenida {
         height: 100vh;
         font-size: clamp(20px, 1.2vw, 40px);
@@ -67,8 +85,14 @@ import NavBar from "../components/NavBar.astro";
     .bienvenida-upper {
         font-size: 1em;
         font-weight: bold;
+        font-style: italic;
     }
-
+    .quehacemos{
+        margin-left: 5%;
+        font-size: 1.5em;
+        font-family: serif;
+        font-weight: bold;
+    }
     @media (max-width: 700px) {
         .bienvenida {
             height: 92vh;

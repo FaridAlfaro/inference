@@ -1,0 +1,93 @@
+---
+
+---
+<form action="/hecho" method="post">
+    <div style="display: flex; justify-content: space-between;">
+        <div style="width: calc(50% - 4px);"> <!-- Resta 4px para compensar el margen -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div style="width: calc(50% - 4px);"> <!-- Resta 4px para compensar el margen -->
+            <label for="nombre_empresa">Nombre de la Empresa:</label>
+            <input type="text" id="nombre_empresa" name="nombre_empresa" required>
+        </div>
+    </div>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="telefono">Número de Celular:</label>
+    <input type="text" id="telefono" name="telefono" required>
+
+    <label for="servicios">Tipo de Servicios:</label>
+    <select id="servicios" name="servicios">
+        <option value="branding">Branding</option>
+        <option value="web_development">Web Development</option>
+        <option value="seo">SEO</option>
+    </select>
+    <input type="submit" value="Enviar">
+</form>
+
+<style>
+    #servicios{
+        background-color: transparent;
+        font-weight: bold;
+        font-family: sans-serif;
+        border: none;
+        margin: 5% 0;
+        width: 100%;
+        color: var(--white);
+
+    }
+    #servicios:focus{
+        text-align: left;
+        transition: text-align ease .5s;
+        color: var(--black);
+
+    }
+    
+    form {  
+            position: relative;
+            width: 100%;
+            font-family: "IBM Plex serif", sans-serif;
+            font-weight: normal;
+            letter-spacing: .1cap;
+            font-style: italic;
+            font-size: .7em;
+        }
+        input[type="text"], textarea {
+            width: 100%; /* Resta 16px para compensar el padding */
+            padding: 8px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid #efefefa7;
+            box-sizing: border-box;
+            background-color: transparent; /* Fondo transparente */
+            transition: background-color 0.3s, border-color 0.3s; /* Efecto de transición */
+        }
+        input[type="text"]:hover, textarea:hover {
+            border-color: var(--white); /* Cambia el color del borde al hacer hover */
+        }
+        input[type="submit"] {
+            font-family: 'IBM Plex Serif', sans-serif;
+            letter-spacing: 2px;
+            width: 50%;
+            background-color: transparent;
+            color: var(--white);
+            padding: 10px 20px;
+            border: solid 1px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all ease .5s;
+
+        }
+        input[type="submit"]:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+        @media (max-width: 700px) {
+            input[type="submit"] {
+            width: 100%;
+            }
+        }
+</style>
