@@ -3,12 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/interface/NavBar.astro";
 import Footer from "../components/interface/Footer.astro";
 import Card from "../components/index/Card.astro";
+import Works from "../components/index/Works.astro"
+import HelloThere from "../components/index/HelloThere.astro"
 ---
 
 <Layout title="Bienvenidos" scroll="none">
     <section class="bienvenida">
         <div class="bar">
-            <NavBar scrollC="none" scrollE="none"/>
+            <NavBar scrollC="100vh" scrollE="20vh"/>
         </div>
         <div class="bienvenida-textos">
             <h4 class="bienvenida-hello">¡Hello there!</h4>
@@ -23,17 +25,34 @@ import Card from "../components/index/Card.astro";
             <h4 class="bienvenida-since">_SINCE 2019</h4>
         </div>
     </section>
+    <HelloThere/>
     <Card/>
-    <section class="quehacemos">
-        <h1>Impulsamos marcas, contamos historias</h1>
-        <div>
-            <img src="/public/gif/PYh.gif" alt="">
-        </div>
-    </section>
-    
+    <separador>
+        <h2>Trabajos<br><span>destacados</span></h2>
+    </separador>
+    <Works/>
     <Footer/>
 </Layout>
 <style>
+    separador{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px 0;
+        color: var(--white);
+        h2{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 5em;
+            font-weight: lighter;
+            font-style: italic;
+        }
+        span{
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+        }
+    }
     section{
         color: var(--white);
     }
@@ -104,5 +123,10 @@ import Card from "../components/index/Card.astro";
             font-size: clamp(14px, 3.9vw, 16px);
             width: 90%;
         }
+        separador{
+        h2{
+            font-size: 2em;
+        }
+    }
     }
 </style>

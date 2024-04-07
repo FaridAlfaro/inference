@@ -123,10 +123,10 @@ const {scrollE, scrollC} = Astro.props
 
     </a>
     <ul class="menu-regular">
-        <li><a class="link" href="/nosotros" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Nosotros</a></li>
-        <li><a class="link" href="/servicios" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Servicios</a></li>
-        <li><a class="link" href="/trabajos" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Trabajos</a></li>
-        <li><a class="link" href="/contacto" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Contacto</a></li>
+        <li class="menu-regular-li"><a class="link" href="/nosotros" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Nosotros</a></li>
+        <li class="menu-regular-li"><a class="link" href="/servicios" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Servicios</a></li>
+        <li class="menu-regular-li"><a class="link" href="/trabajos" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Trabajos</a></li>
+        <li class="menu-regular-li"><a class="link" href="/contacto" style=`animation-range: entry ${scrollE} cover ${scrollC};`>Contacto</a></li>
     </ul>
     <div class="hamburguesa">
       <Hamburguesa scrollE={scrollE} scrollC={scrollC}/>
@@ -165,7 +165,7 @@ const {scrollE, scrollC} = Astro.props
         width: 100%; /* Ancho completo al hacer hover */
     }
     .logo{
-        height: 60px;
+        height: 50px;
         /* fill: var(--white); */
     }
     nav {
@@ -175,15 +175,15 @@ const {scrollE, scrollC} = Astro.props
     justify-content: space-between;
     top: 0;
     width: 90%;
+    max-width: 100vw;
     height: 60px;
     padding: 1% 5%;
     z-index: 3;
     animation: fondo linear both;
     animation-timeline: scroll(block);
     animation-range: entry 15% cover 111vh;
-
-
-  ul {
+  }
+  .menu-regular {
     margin: 0;
     margin-top: 6.33px;
     list-style-type: none;
@@ -192,33 +192,32 @@ const {scrollE, scrollC} = Astro.props
     align-items: center;
     gap: 2em;
   }
-  li {
+  .menu-regular-li {
     transition: all .2s;
     &:last-child {
       padding-right: 0;
+      
     }
-  }
-  a {
+    a {
     color: var(--white);
     font-size: clamp(14px, 3vh, 18px);
     text-decoration: none;
     transition: all .3s;
-    animation: textos linear both;
-    animation-timeline: scroll(block);
-    /* animation-range: entry 15% cover 111vh; */
-    fill: var(--white);
-    
   }
+  }
+.a{
+  fill: var(--white);
 }
+
 
 @keyframes fondo {
   from {
     background: transparent;
   }
   to {
-    /* background: rgba(255, 255, 255, 0.09);
+    background: rgba(22, 18, 18, 0.1);
     backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
+    -webkit-backdrop-filter: blur(7px);
   }
 }
 
@@ -232,9 +231,7 @@ const {scrollE, scrollC} = Astro.props
   .hamburguesa{
     display: block;
   }
-  nav{
-    animation: none;
-  }
+
 
 }
 </style>
