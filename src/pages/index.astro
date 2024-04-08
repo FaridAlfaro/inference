@@ -1,37 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import NavBar from "../components/interface/NavBar.astro";
+import NavBar from "../layouts/NavBar.astro";
 import Footer from "../components/interface/Footer.astro";
-import Card from "../components/index/Card.astro";
 import Works from "../components/index/Works.astro"
 import HelloThere from "../components/index/HelloThere.astro"
+import CardSlider from "../components/index/CardSlider.astro";
 ---
 
 <Layout title="Bienvenidos" scroll="none">
-    <section class="bienvenida">
-        <div class="bar">
-            <NavBar scrollC="100vh" scrollE="20vh"/>
-        </div>
-        <div class="bienvenida-textos">
-            <h4 class="bienvenida-hello">¡Hello there!</h4>
-            <h1 class="bienvenida-titulo">
-                <span class="bienvenida-upper">Resolvemos</span> problemas. <br
-                />
-                Impulsamos <span class="bienvenida-upper">ideas</span>. <br />
-                Creamos soluciones que <span class="bienvenida-upper"
-                    >funcionan</span
-                >.
-            </h1>
-            <h4 class="bienvenida-since">_SINCE 2019</h4>
-        </div>
-    </section>
-    <HelloThere/>
-    <Card/>
-    <separador>
-        <h2>Trabajos<br><span>destacados</span></h2>
-    </separador>
-    <Works/>
-    <Footer/>
+    <NavBar scrollC="100vh" scrollE="20vh">
+        <section class="bienvenida">
+            <div class="bienvenida-textos">
+                <h4 class="bienvenida-hello">¡Hello there!</h4>
+                <h1 class="bienvenida-titulo">
+                    <span class="bienvenida-upper">Resolvemos</span> problemas. <br
+                    />
+                    Impulsamos <span class="bienvenida-upper">ideas</span>. <br />
+                    Creamos soluciones que <span class="bienvenida-upper"
+                        >funcionan</span
+                    >.
+                </h1>
+                <h4 class="bienvenida-since">_SINCE 2019</h4>
+            </div>
+        </section>
+        <HelloThere r1="El lugar donde" r2="Tecnología y emociones" r3="trabajan juntos" space="30vh 0 0 0"/>
+        <CardSlider/>
+        <HelloThere r1="Trabajos" r2="destacados" r3="" space="20w 0 0 0"/>
+        <Works/>
+        <Footer/>
+    </NavBar>
 </Layout>
 <style>
     separador{
@@ -71,7 +68,7 @@ import HelloThere from "../components/index/HelloThere.astro"
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: flex-end;
         color: var(--black);
         overflow: hidden !important;
         color: var(--white);
@@ -114,10 +111,11 @@ import HelloThere from "../components/index/HelloThere.astro"
     }
     @media (max-width: 700px) {
         .bienvenida {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             height: 92vh;
-            padding-bottom: 10vh;
             width: 100vw;
-            overflow: hidden;
         }
         .bienvenida-textos{
             font-size: clamp(14px, 3.9vw, 16px);

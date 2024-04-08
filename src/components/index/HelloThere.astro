@@ -1,65 +1,64 @@
 ---
-
+interface Props{
+    r1: string;
+    r2: string;
+    r3: string;
+    space: string;
+}
+const { r1, r2, r3, space} = Astro.props;
 ---
-<separador class="space">
-    <h2>El lugar donde<br><span>Tecnología y emociones</span><br>trabajan juntos</h2>
+
+<separador style=`margin: ${space};`>
+    <h2>
+        {r1}<br /><span>{r2}</span><br />{r3}
+    </h2>
 </separador>
 
-
 <style>
-    separador{
+    separador {
         display: flex;
         justify-content: center;
         align-items: center;
         color: var(--white);
-        
-        h2{
+
+        h2 {
             text-align: center;
             text-transform: uppercase;
             font-size: 5em;
             font-weight: lighter;
             font-style: italic;
-            
         }
-        span{
+        span {
             font-family: sans-serif;
             font-style: normal;
             font-weight: bold;
             animation: slideUp linear both;
             animation-timeline: view();
-            animation-range: entry 0% cover 40%;
-    }
-    
-    }
-    .space{
-        margin: 30vh 0 0 0;
+            animation-range: entry 0% cover 60%;
+        }
     }
     @keyframes slideUp {
-        from{
+        from {
             opacity: 0;
-            filter:blur(20px);
+            filter: blur(20px);
         }
-        to{
+        to {
             opacity: 1;
-
-            /* background: url(/dist/gif/Diseño-sin-título-_2_.gif); */
-            /* background-size: cover;
-            background-clip: text; */
+        }
+    }
+    @media (max-width: 700px) {
+        separador {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                font-size: 24px;
+            }
         }
     }
     @media (max-width: 700px) {
         separador{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            h2{
-                font-size: 24px;
-            }
+            margin: 10vh 0 0 0;
         }
-        .space{
-        margin: 0;
-        height: 60vh;
     }
-    }
-    
 </style>

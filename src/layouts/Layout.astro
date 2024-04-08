@@ -82,15 +82,15 @@ const { title, scroll = 'auto' } = Astro.props;
 <style>
 
 	:root {
-  --color-bg1: #9f9f9f;
-  --color-bg2: #390037;
+  --color-bg1: #efefef;
+  --color-bg2: #2b054b;
   --color1: 18, 113, 255;
   --color2: 221, 74, 255;
   --color3: 100, 220, 255;
   --color4: 200, 50, 50;
   --color5: 180, 180, 50;
   --color-interactive: 23, 190, 209;
-  --circle-size: 100%;
+  --circle-size: 200%;
   --blending: hard-light;
 }
 @keyframes moveInCircle {
@@ -133,7 +133,7 @@ const { title, scroll = 'auto' } = Astro.props;
 .gradient-bg {
   width: 100vw;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -2;
   overflow: hidden;
   background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
@@ -224,12 +224,15 @@ const { title, scroll = 'auto' } = Astro.props;
   }
 }
 @media (max-width: 700px) {
+ 
   .interactive{
     display: none;
   }
 }
 body{
   position: relative;
+  /* background: #000000; */
+  /* filter: url(#noiseFilter); */
 }
 
 </style>

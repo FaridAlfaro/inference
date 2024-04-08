@@ -1,5 +1,5 @@
 ---
-import Hamburguesa from './Hamburguesa.astro';
+import Hamburguesa from '../components/interface/Hamburguesa.astro';
 
 interface Props{
   scrollE: string;
@@ -7,8 +7,7 @@ interface Props{
 }
 const {scrollE, scrollC} = Astro.props
 ---
-
-<nav >
+  <nav>
     <a href="/" class="a" style=`animation-range: entry ${scrollE} cover ${scrollC};`>
         <svg class="logo" viewBox="0 0 2061.7214 544.49504">
     <g transform="translate(-945.6613,-1834.9707)">
@@ -133,6 +132,7 @@ const {scrollE, scrollC} = Astro.props
     </div>
 </nav>
 <slot />
+
 
 <style>
   .hamburguesa{
