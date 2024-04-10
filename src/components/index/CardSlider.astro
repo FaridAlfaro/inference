@@ -19,18 +19,6 @@ import Slider from "./Slider.astro";
 </section>
 
 <style>
-	@keyframes aparecer {
-		to{
-			opacity: 0;
-			display: none;
-		}
-	}
-	@keyframes aparecer2 {
-		to {
-			opacity: 1;
-			display: block;
-		}
-	}
 	*{
 		margin: 0;
 		padding: 0;
@@ -91,20 +79,11 @@ import Slider from "./Slider.astro";
 	section{
 		overflow-x: hidden;
 		box-sizing: border-box;
-		animation: desvaneceraaa linear both;
+		animation: fade-up-traslate linear both;
         animation-timeline: view();
         animation-range: entry 20vh cover 100vh;
 	}
-	@keyframes desvaneceraaa {
-		0% {
-			opacity: 0;
-			transform: translateY(1000px);
-            /* backdrop-filter: blur(20px); */
-		}
-		100% {
-			opacity: 1;
-		}
-	}
+	
 	.title{
 		display: flex;
 		flex-direction: column;
@@ -202,7 +181,7 @@ button:hover{
 	}
 	section{
 		overflow-x: hidden !important;
-		animation: blur linear both;
+		animation: fade-up linear both;
 		animation-timeline: view();
 		animation-range: entry 0vh cover 80vh;
 	}
