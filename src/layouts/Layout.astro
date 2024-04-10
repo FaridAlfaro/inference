@@ -224,15 +224,50 @@ const { title, scroll = 'auto' } = Astro.props;
   }
 }
 @media (max-width: 700px) {
- 
+  .gradient-bg{
+    background: linear-gradient(40deg, #696666, #000000);
+    filter: url(#noiseFilter) brightness(.3);
+  .g1 {
+    display: none;
+
+    animation: none;
+  }
+
+  .g2 {
+    display: none;
+    
+    animation: none;
+
+  }
+
+  .g3 {
+    display: none;
+    
+    animation: none;
+
+  }
+
+  .g4 {
+    
+    animation: none;
+    display: none;
+
+  }
+
+  .g5 {
+    display: none;
+
+    animation: none;
+
+  }
+}
+
   .interactive{
     display: none;
   }
 }
 body{
   position: relative;
-  /* background: #000000; */
-  /* filter: url(#noiseFilter); */
 }
 
 </style>
