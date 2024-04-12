@@ -74,31 +74,7 @@ import Footer from "../components/interface/Footer.astro"
         justify-content: center;
         align-items: center;
     }
-    h3{
-        font-size: clamp(30px, 10vh, 80px);
-        margin: 0;
-        padding: 0;
-        animation: aparecer linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 50%;
-    }
-    @keyframes aparecer {
-        0%{
-            opacity: 0;
-            filter: blur(20px);
-            color: var(--black);
-        }
-        80%{
-            color: var(--black);
-        }
-        100%{
-            background-image: url(/gif/Diseño-sin-título-_2_.gif);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-clip: text;
-            color: transparent;
-        }
-    }
+    
     @media (max-width: 700px) {
         .contain{
             display: flex;

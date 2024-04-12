@@ -1,15 +1,14 @@
 ---
-import NavBar from "./NavBar.astro"
+import NavBar from "./NavBar.astro";
 
 interface Props {
     title: string;
-    scrollE: string;
-    scrollC: string;
+
 }
-const {scrollE, scrollC, title} = Astro.props
+const {title} = Astro.props
 ---
 
-  <NavBar scrollE={scrollE} scrollC={scrollC}/>
+  <NavBar/>
   <header>
       <h1 class="titulo" >{title}</h1>
       <div class="container">
@@ -68,9 +67,9 @@ const {scrollE, scrollC, title} = Astro.props
         border-radius: 100%;
         height: 6px;
         width: 6px;
-        animation: aaa infinite 1s;
+        animation: scroller infinite 1s;
     }
-    @keyframes aaa {
+    @keyframes scroller {
         to{
             top: 0%;
             opacity: 0;
@@ -94,7 +93,6 @@ const {scrollE, scrollC, title} = Astro.props
     h1 {
         color: var(--white);
         font-size: 4em;
-        text-transform: uppercase;
         text-align: center;
     }
     
@@ -111,9 +109,16 @@ const {scrollE, scrollC, title} = Astro.props
 }
 @media (max-width: 700px) {
   header{
-    height: calc(100vh - 60px);
+      background: url("/Fondos/mesa-de-trabajo-1.webp") no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+      animation: fade-down-traslate linear both;
+      animation-timeline: view();
+      animation-range: entry 100vh cover 130vh;
     h1 {
         font-size: 3em;
+        margin-bottom: 60px;
     }
     
   }

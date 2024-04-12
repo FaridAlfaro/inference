@@ -1,0 +1,53 @@
+---
+
+---
+<div class="movil">
+    <img src="/public/logos/completoo.svg" alt="" class="logo">
+</div>
+<div class="barra">
+    <img src="/public/logos/completoo.svg" alt="" class="logo">
+</div>
+<style>
+    .movil{
+        display: none;
+        margin: 0;
+        padding: 0;
+        height: 98%;
+    }
+    .barra{
+        margin: 0;
+        padding: 0;
+        height: 98%;
+    }
+    .logo{
+        height: 98%;
+        filter: invert(1);
+        animation: cambio-color linear both;
+        animation-timeline: scroll(block);
+        animation-range: entry 0vh cover 2vh;
+    }
+    @keyframes cambio-color {
+        to{
+            filter: invert(0);
+        }
+    }
+    @media (max-width: 700px) {
+        .barra{
+            display: none;
+        }
+        .movil{
+            margin-bottom: 10px;
+            display: block;
+            animation: cortar linear both;
+            animation-timeline: scroll(block);
+            animation-range: entry 0vh cover 2vh;
+        }
+    }
+    @keyframes cortar {
+        to{
+            height: 20px;
+            filter: invert(0);
+            margin-bottom: 4px;
+        }
+    }
+</style>

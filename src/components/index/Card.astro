@@ -16,7 +16,7 @@ const { h3, p, src, href } = Astro.props;
             <p class="card-paragraph">
                 {p}
             </p>
-            <p class="card-link">Más información<span>→</span></p>
+            <p class="card-link">Más información<span> →</span></p>
         </div>
     </a>
 </div>
@@ -30,6 +30,8 @@ const { h3, p, src, href } = Astro.props;
         text-decoration: none;
     }
     .card {
+    border-radius: 8px;
+
         margin-right: 20px;
         min-height: 60vh;
         height: 60vh;
@@ -87,10 +89,15 @@ const { h3, p, src, href } = Astro.props;
             font-size: 16px;
         }
         .card {
+            background: url("/public/Fondos/mesa-de-trabajo-1.webp") no-repeat;
+            background-size: 45vh;
+            background-position: bottom center;
+            filter:hue-rotate(170deg);
             min-height: 45vh;
             height: 45vh;
             min-width: calc(45vh / 1.618);
             width: calc(45vh / 1.618);
+
         }
         .card:hover {
             scale: 1;
@@ -98,19 +105,24 @@ const { h3, p, src, href } = Astro.props;
         .card-image {
             height: 26%;
             width: 80%;
-            filter: invert(1);
+            filter: invert(0);
         }
         .card-text {
             justify-content: space-between;
             height: 55%;
         }
         .card-title {
-            font-size: 1.4em;
+            color: var(--white);
+            font-size: 1.9em;
         }
         .card-paragraph {
+            color: var(--white);
+
             font-size: 16px;
         }
         .card-link {
+            color: var(--white);
+            opacity: .7;
             font-size: 16px;
         }
         .card:hover {

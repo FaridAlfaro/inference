@@ -49,19 +49,11 @@
     justify-content: center; 
     animation: footer linear both;
     animation-timeline: view();
-    animation-range: entry 80vh cover 100vh;
+    animation-range: fade-up 80vh cover 100vh;
     max-height: 100vh;
     margin-top: 200px;
 	}
-	@keyframes footer {
-		from {
-			opacity: 0;
-			filter: blur(20px);
-		}
-		to {
-			opacity: 1;
-		}
-	}
+	
   .footer__container {
     background-color: #00000076;
     height: 100%;
@@ -130,17 +122,9 @@
     background-size: cover;
     background-position: center center;
     overflow-x: hidden;
+    animation: fade-up-traslate linear both;
     animation-range: entry 0vh cover 100vh;
     margin-top: 50px;
-	}
-	@keyframes footer {
-		from {
-			opacity: 0;
-			filter: blur(20px);
-		}
-		to {
-			opacity: 1;
-		}
 	}
   .footer__container {
     background-color: #00000076;
