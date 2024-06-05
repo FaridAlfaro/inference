@@ -20,17 +20,19 @@ const { title, scroll = 'auto' } = Astro.props;
 	</head>
 	<body style=`overflow-y:${scroll}`>
 		<div class="gradient-bg">
-			<svg class="noise">
-				<filter id='noiseFilter'>
-				  <feTurbulence 
-					type='fractalNoise' 
-					baseFrequency='0.6' 
-					stitchTiles='stitch'/>
-				   <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-					  <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
-					  <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
-				</filter>
-			  </svg>
+			<svg width="0" height="0">
+        <filter id="noiseFilter" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" result="turbulence" numOctaves="1"/>
+          <feColorMatrix type="saturate" in="turbulence" values="0"/>
+          <feComponentTransfer in="turbulence" result="noise">
+            <feFuncR type="table" tableValues="0 0"/>
+            <feFuncG type="table" tableValues="0 0"/>
+            <feFuncB type="table" tableValues="0 0"/>
+            <feFuncA type="table" tableValues="0 1"/>
+          </feComponentTransfer>
+          <feComposite in="SourceGraphic" in2="noise" operator="in"/>
+        </filter>
+      </svg>
 		
 			<svg xmlns="http://www.w3.org/2000/svg">
 			  <defs>
@@ -82,24 +84,19 @@ const { title, scroll = 'auto' } = Astro.props;
 <style>
 
 	:root {
-  --color-bg1: rgb(8,157,131);
-  --color-bg2: rgb(0, 166, 113);
-  --color1: 178, 0, 187;
-  --color2: 0, 22, 29;
-  --color3: 0, 166, 113;
-  --color4: 0, 22, 29;
-  --color5: 205, 125, 13;
+  --color-bg1: rgb(52, 0, 120);
+  --color-bg2: rgb(73, 0, 151);
+  --color1: 226, 0, 238;
+  --color2: 0, 183, 176;
+  --color3: 198, 51, 108;
+  --color4: 66, 156, 144;
+  --color5: 228, 144, 27;
   --color-interactive: 239, 239, 239;
   --circle-size: 200%;
   --blending: hard-light;
 }
-a{
-  color: rgb(178, 0, 187); 
-  color: rgb(0, 22, 29);
-  color: rgb(0, 166, 113);
-  color: rgb(0, 22, 29);
-  color: rgb(8,157,131);
-}
+
+
 @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
@@ -157,6 +154,8 @@ a{
     filter: url(#goo) blur(100px);
     width: 100vw;
     height: 100%;
+    background-color: rgb(242, 242, 242);
+    
   }
 
   .g1 {
@@ -232,8 +231,8 @@ a{
 }
 @media (max-width: 700px) {
   .gradient-bg{
-    background: linear-gradient(40deg, #696666, #000000);
-    filter: url(#noiseFilter) brightness(.3);
+    background: #efefef;
+    filter: none;
   .g1 {
     display: none;
 
@@ -281,9 +280,7 @@ body{
 <style is:global>
 @font-face {
     font-family: 'Melodrama';
-    src: url('Melodrama-Bold.eot');
     src: local('Melodrama Bold'), local('Melodrama-Bold'),
-        url('/fonts/Melodrama-Bold.eot') format('embedded-opentype'),
         url('/fonts/Melodrama-Bold.woff2') format('woff2'),
         url('/fonts/Melodrama-Bold.woff') format('woff'),
         url('/fonts/Melodrama-Bold.ttf') format('truetype');
@@ -294,9 +291,7 @@ body{
 
 @font-face {
     font-family: 'Melodrama';
-    src: url('Melodrama-Medium.eot');
     src: local('Melodrama Medium'), local('Melodrama-Medium'),
-        url('/fonts/Melodrama-Medium.eot') format('embedded-opentype'),
         url('/fonts/Melodrama-Medium.woff2') format('woff2'),
         url('/fonts/Melodrama-Medium.woff') format('woff'),
         url('/fonts/Melodrama-Medium.ttf') format('truetype');
@@ -307,9 +302,7 @@ body{
 
 @font-face {
     font-family: 'Melodrama';
-    src: url('Melodrama-Semibold.eot');
     src: local('Melodrama Semibold'), local('Melodrama-Semibold'),
-        url('/fonts/Melodrama-Semibold.eot') format('embedded-opentype'),
         url('/fonts/Melodrama-Semibold.woff2') format('woff2'),
         url('/fonts/Melodrama-Semibold.woff') format('woff'),
         url('/fonts/Melodrama-Semibold.ttf') format('truetype');
@@ -320,9 +313,7 @@ body{
 
 @font-face {
     font-family: 'Melodrama';
-    src: url('Melodrama-Regular.eot');
     src: local('Melodrama Regular'), local('Melodrama-Regular'),
-        url('/fonts/Melodrama-Regular.eot') format('embedded-opentype'),
         url('/fonts/Melodrama-Regular.woff2') format('woff2'),
         url('/fonts/Melodrama-Regular.woff') format('woff'),
         url('/fonts/Melodrama-Regular.ttf') format('truetype');
@@ -333,9 +324,7 @@ body{
 
 @font-face {
     font-family: 'Melodrama';
-    src: url('Melodrama-Light.eot');
     src: local('Melodrama Light'), local('Melodrama-Light'),
-        url('/fonts/CabinetGrotesk-Light.eot') format('embedded-opentype'),
         url('/fonts/Melodrama-Light.woff2') format('woff2'),
         url('/fonts/Melodrama-Light.woff') format('woff'),
         url('/fonts/Melodrama-Light.ttf') format('truetype');
@@ -476,9 +465,13 @@ body{
 	}
   p{
     font-family: 'CabinetGrotesk-Variable', sans-serif;
+    color: var(--white);
+
   }
   h1, h2, h3, h4, span{
     font-family: "Melodrama", serif;
+    color: var(--white);
+
   }
   @keyframes fade-up {
         from {
@@ -489,17 +482,31 @@ body{
             opacity: 1;
         }
     }
-    @keyframes slide-up {
+    @keyframes fade {
         from {
-            transform: translateY(40vh);
+          opacity: 0;
+          transform: translateX(5%);
+        }
+        to {
+        }
+    }
+    @keyframes slide-up {
+        0% {
+            transform: translateY(50vh);
             opacity: 0;
+        }
+        90%{
+          
+        }
+        100%{
+
         }
     }
     @keyframes fade-up-traslate {
-		0% {
+		30% {
 			opacity: 0;
-			transform: translateY(1000px);
-            filter: blur(40px);
+			transform: translateY(500px);
+      filter: blur(10px);
 		}
 		100% {
 			opacity: 1;
@@ -512,4 +519,13 @@ body{
                 transform: translateY(-20vh);
             }
         }
+  @media (max-width: 700px) {
+    p{
+      color: var(--black);
+    }
+    h1, h2, h3, h4, span{
+      color: var(--black);
+
+    }
+  }
 </style>

@@ -4,29 +4,45 @@
   <button id="menu-btn">Menú</button>
   <div class="menu-overlay" id="menu-overlay">
     <ul class="nav">
-      <li><a href="/nosotros">Nosotros</a></li>
-      <li><a href="/servicios">Servicios</a></li>
-      <li><a href="/trabajos">Trabajos</a></li>
-      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/nosotros">Nosotros<span> →</span></a></li>
+      <li><a href="/servicios">Servicios<span> →</span></a></li>
+      <li><a href="/trabajos">Trabajos<span> →</span></a></li>
+      <li><a href="/contacto">Contacto<span> →</span></a></li>
     </ul>
   </div>
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-const menuOverlay = document.getElementById('menu-overlay');
-
-menuBtn.addEventListener('click', function() {
-  menuBtn.style.color = 'var(--white)'
-  menuOverlay.classList.toggle('open');
-  document.body.classList.toggle('menu-open');
-});
-
-menuOverlay.addEventListener('click', function(e) {
-  if (e.target === menuOverlay) {
-    menuOverlay.classList.remove('open');
-    document.body.classList.remove('menu-open');
-  }
-});
-</script>
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+  
+    menuBtn.addEventListener('click', function() {
+      menuOverlay.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+  
+      // Cambiar el texto del botón con un fade
+      if (menuBtn.textContent === 'Menú') {
+        menuBtn.style.transition = 'opacity 0.5s ease-in-out';
+        menuBtn.textContent = 'Cerrar';
+        setTimeout(() => {
+          menuBtn.style.opacity = '1';
+        }, 1000); // Pequeño retraso para que la transición ocurra
+      } else {
+        menuBtn.style.transition = 'opacity 0.5s ease-in-out';
+        menuBtn.textContent = 'Menú';
+        setTimeout(() => {
+          menuBtn.style.opacity = '1';
+        }, 50); // Pequeño retraso para que la transición ocurra
+      }
+    });
+  
+    menuOverlay.addEventListener('click', function(e) {
+      if (e.target === menuOverlay) {
+        menuOverlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        // Restaurar el texto del botón
+        menuBtn.textContent = 'Menú';
+      }
+    });
+  </script>
 <style>
   *{
     margin: 0;
@@ -38,11 +54,12 @@ menuOverlay.addEventListener('click', function(e) {
     border: none;
     font-family: 'CabinetGrotesk-Variable', sans-serif;
     font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: right;
+    padding: 10%;
     z-index: 999;
-    color: var(--white);
-    margin-right: 20px;
+    color: var(--black);
+    width: 100%;
     animation: fondo-color linear both;
     animation-timeline: scroll(block);
     animation-range: entry 0% cover 1vh;
@@ -55,7 +72,7 @@ menuOverlay.addEventListener('click', function(e) {
 }
   .menu-overlay {
   position: fixed;
-  top: 70px;
+  top: 80px;
   left: 0;
   max-width: 100%;
   width: 100%;
@@ -63,34 +80,47 @@ menuOverlay.addEventListener('click', function(e) {
   overflow: hidden;
   background-color: var(--white);
   transition: height 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  
 }
 
 .nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin:0;
   list-style-type: none;
   padding: 0;
 }
 
 .nav li {
-  display: flex;
   margin-left: 5%;
-  justify-content: flex-start;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  height: calc(100%/4);
   a{
-    font-family: 'Melodrama', serif;
-    font-style: italic;
-    font-weight: 900;
-    opacity: .7;
+    font-family: 'CabinetGrotesk-Variable', sans-serif;
+    font-weight: bold;
     color: var(--black);
     text-decoration: none;
-    font-size: 1.9em;
+    font-size: 22px;
+    width: 100%;
+    letter-spacing: 2px;
+    span{
+      opacity: 0;
+    }
 }
+
 a:hover{
   opacity: 1;
+  span {
+                transition: ease 0.4s;
+                opacity: 1;
+                scale: 1.1;
+                margin-left: 40px;
+            }
 }
 }
 /* Animación para abrir el menú */
@@ -104,7 +134,7 @@ a:hover{
   body.menu-open {
   overflow: hidden;
   section {
-   filter: blur(40px) brightness(.5);
+   filter: blur(40px);
   }
   footer{
    filter: blur(40px);

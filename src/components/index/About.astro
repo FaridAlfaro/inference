@@ -1,0 +1,114 @@
+---
+
+---
+
+<section>
+    <div class="angry-grid">
+        <div id="item-0"></div>
+        <div id="item-1"></div>
+        <div id="item-2"></div>
+        <div id="item-3"></div>
+    </div>
+    <a href="/nosotros">
+        <div class="about">
+            <h3 class="filosofia">
+                Nuestra filosofía de trabajo 
+            </h3>
+            <span class="flecha">
+                →
+            </span>
+        </div>
+    </a>
+</section>
+
+<style>
+    a{
+        text-decoration: none;
+        color: none;
+    }
+    section{
+        margin: 100px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+    }
+    .angry-grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0px;
+        height: 50vh;
+    }
+
+    #item-0 {
+        background-image: url(gif/Luna.gif);
+        background-size: cover;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 1;
+        grid-column-end: 1;
+    }
+    #item-1 {
+        background-color: rgb(3, 139, 3);
+        background-image: url(/gif/homero.gif);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: 180px;
+        background-position: 50%;
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-row-end: 1;
+        grid-column-end: 2;
+    }
+    #item-2 {
+        background-image: url(/gif/pato.gif);
+        background-size: 120px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 2;
+    }
+    #item-3 {
+        background-image: url(/gif/fondo.gif);
+        background-size: cover;
+        background-position: 50%;
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-row-end: 2;
+        grid-column-end: 2;
+    }
+
+    .about {
+        height: 50vh;
+        background-image: url(/gif/PYh.gif);
+        background-size: cover;
+        background-color: var(--black);
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        color: var(--white);
+        cursor: pointer;
+    }
+    .about:hover, #item-0:hover, #item-1:hover, #item-2:hover, #item-3:hover{
+        transition: ease-in-out .2s;
+        filter: invert(1);
+
+    }
+    .filosofia{
+        font-size: 30px;
+        font-weight: 300;
+        color: inherit;
+        margin: 10% 0 0 0;
+    }
+    .flecha{
+        color: inherit;
+        font-size: calc(50vh/6); 
+        margin: -20px 0;
+        padding: 0;
+    }
+    
+</style>

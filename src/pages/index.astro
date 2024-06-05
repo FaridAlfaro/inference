@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../layouts/NavBar.astro";
 import Footer from "../components/interface/Footer.astro";
-import Works from "../components/index/Works.astro"
-import HelloThere from "../components/index/HelloThere.astro"
-import CardSlider from "../components/index/CardSlider.astro";
+import Works from "../components/index/Works.astro";
+import HelloThere from "../components/index/HelloThere.astro";
+import ServiciosIndex from "../components/index/ServiciosIndex.astro"
+import About from "../components/index/About.astro"
 ---
 
 <Layout title="Bienvenidos" scroll="none">
@@ -23,46 +24,20 @@ import CardSlider from "../components/index/CardSlider.astro";
                 <h4 class="bienvenida-since">SINCE 2019</h4>
             </div>
         </section>
-        <HelloThere r1="El lugar donde" r2="Tecnología y emociones" r3="trabajan juntos." space="10vh 0 20vh 0"/>
-        <CardSlider/>
-        <HelloThere r1="Trabajos" r2="destacados" r3="" space="20w 0 0 0"/>
+        <HelloThere r1="Somos especialistas en marcas" r2="para empresas emergentes" r3="y rebranding." r4=""/>
+        <!-- <HelloThere r1="Desarrollamos" r2="Tecnología y emociones" r3="trabajan juntos."/> -->
+        <ServiciosIndex/>
+        <!-- <SeviciosAcordion/> -->
+        <HelloThere r1="Trabajos" r2="" r3="" r4="destacados"/>
         <Works/>
+        <About/>
         <Footer/>
     </NavBar>
 </Layout>
 <style>
-    separador{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 100px 0;
-        color: var(--white);
-        h2{
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 5em;
-            font-weight: lighter;
-            font-style: italic;
-        }
-        span{
-            font-family: sans-serif;
-            font-style: normal;
-            font-weight: bold;
-        }
-    }
-    .sep-title{
-        color: var(--white);
-        width: 100%;
-        display: inline-block;
-        margin-left: 5%;
-        font-size: clamp(20px, 3em, 60px);
-        font-weight: normal;
-    }
     .bienvenida {
-        /* background: url(/public/cards/2.svg) no-repeat;
-        background-position: center; */
         height: 100vh;
-        font-size: 1.4vw;
+        font-size: clamp(24px, 3em, 28px);
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -78,12 +53,14 @@ import CardSlider from "../components/index/CardSlider.astro";
     }
 
     .bienvenida-titulo {
+        color: var(--white);
         font-family: "Melodrama", serif;
         font-weight: normal;
         padding: 0;
         margin: 0;
     }
     .bienvenida-hello {
+        color: var(--white);
         text-align: center;
         margin:  .6em 0;
         font-size: 1em;
@@ -93,6 +70,7 @@ import CardSlider from "../components/index/CardSlider.astro";
         text-transform: uppercase;
     }
     .bienvenida-since {
+        color: var(--white);
         text-align: center;
         margin: 1em 0;
         font-size: 1em;
@@ -101,6 +79,7 @@ import CardSlider from "../components/index/CardSlider.astro";
     }
 
     .bienvenida-upper {
+        color: var(--white);
         font-size: 1em;
         font-weight: bold;
         font-style: italic;
@@ -113,22 +92,52 @@ import CardSlider from "../components/index/CardSlider.astro";
     }
     @media (max-width: 700px) {
         .bienvenida {
-            background: url("/public/Fondos/mesa-de-trabajo-1.webp") no-repeat;
-            background-size: cover;
             background-position: center center;
             display: flex;
             justify-content: center;
             align-items: center;
+            /* margin-top: 70px; */
             height: 100vh;
             max-width: 100vw;
             background-color: var(--black);
-            animation: fade-down-traslate linear both;
-            animation-timeline: view();
-            animation-range: entry 100vh cover 130vh;
+            background-color: transparent;
+            animation: fondos infinite 10s;
+        }
+        @keyframes fondos {
+            0%{
+                background: url('/Fondos/6.webp') no-repeat;
+                background-size: cover;
+            animation-delay: 1s;
+
+            }
+            20%{
+                background: url('/Fondos/2.webp') no-repeat;
+                background-size: cover;
+            }
+            40%{
+                background: url('/Fondos/3.webp') no-repeat;
+                background-size: cover;
+
+            }
+            60%{
+                background: url('/Fondos/4.webp') no-repeat;
+                background-size: cover;
+
+            }
+            80%{
+                background: url('/Fondos/5.webp') no-repeat;
+                background-size: cover;
+
+            }
+            100%{
+                background: url('/Fondos/6.webp') no-repeat;
+                background-size: cover;
+
+            }
         }
         
         .bienvenida-textos{
-            font-size: 16px;
+            font-size: 18px;
             width: 90%;
         }
     }

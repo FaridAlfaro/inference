@@ -14,7 +14,7 @@ const { text, bottom, left, url } = Astro.props
 <style>
 .servicios-boton {
     font-size: 1.5em;
-  color: var(--white);
+  color: var(--black);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -35,7 +35,7 @@ const { text, bottom, left, url } = Astro.props
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--white);
+  background-color: var(--black);
   transition: width 0.3s ease;
 }
 
@@ -44,7 +44,7 @@ const { text, bottom, left, url } = Astro.props
 }
 
 .servicios-boton::after {
-  content: "➢";
+  content: "→";
   scale: 1;
   position: relative; /* Cambia relative a absolute */
   opacity: 0;

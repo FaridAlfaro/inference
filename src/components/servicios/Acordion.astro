@@ -2,201 +2,118 @@
 import Boton from "../interface/Boton.astro"
 ---
 <section>
-<ul>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>Branding</h2>
-    <p>Creación de identidad visual y mensaje para una marca con el objetivo de diferenciarla y conectar con su audiencia.</p>
-  </li>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>UI/UX</h2>
-    <p>Diseño de interfaces de usuario centrado en la experiencia del usuario, asegurando una navegación intuitiva y agradable.</p>
-  </li>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>Web Development</h2>
-    <p>Construcción de sitios web utilizando tecnologías de punta para crear experiencias memorables.</p>
-  </li>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>SEO</h2>
-    <p>Optimización de sitios web para mejorar su visibilidad en los resultados de búsqueda, aumentando el tráfico orgánico y la relevancia en línea.</p>
-  </li>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>Packaging & Logo Design</h2>
-    <p>Creación de envases atractivos y logotipos distintivos que reflejen la identidad de una marca y la diferencien en el mercado.</p>
-  </li>
-  <li>
-    <input type="checkbox" checked>
-    <i></i>
-    <h2>Digital Marketing</h2>
-    <p>Estrategias y tácticas para promocionar productos o servicios utilizando canales digitales como redes sociales, correo electrónico y publicidad en línea.</p>
-  </li>
-</ul>
+  <ul class="list">
+    <li class="item">
+      <i></i>
+      <h2 class="title">Branding
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Creación de identidad visual y mensaje para una marca con el objetivo de diferenciarla y conectar con su audiencia.</p>
+    </li>
+    <li class="item">
+      <i></i>
+      <h2 class="title">UI/UX
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Diseño de interfaces de usuario centrado en la experiencia del usuario, asegurando una navegación intuitiva y agradable.</p>
+    </li>
+    <li class="item">
+      <i></i>
+      <h2 class="title">Web Development
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Construcción de sitios web utilizando tecnologías de punta para crear experiencias memorables.</p>
+    </li>
+    <li class="item">
+      <i></i>
+      <h2 class="title">SEO
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Optimización de sitios web para mejorar su visibilidad en los resultados de búsqueda, aumentando el tráfico orgánico y la relevancia en línea.</p>
+    </li>
+    <li class="item">
+      <i></i>
+      <h2 class="title">Packaging & Logo Design
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Creación de envases atractivos y logotipos distintivos que reflejen la identidad de una marca y la diferencien en el mercado.</p>
+    </li>
+    <li class="item">
+      <i></i>
+      <h2 class="title">Digital Marketing
+      <span class="arrow">▶</span>
+      </h2>
+      <p class="description">Estrategias y tácticas para promocionar productos o servicios utilizando canales digitales como redes sociales, correo electrónico y publicidad en línea.</p>
+    </li>
+  </ul>
   <Boton text="Contactanos" url="/contacto" bottom="20vh" left="calc(100vw /2)"/>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.item');
+
+  items.forEach(item => {
+    item.addEventListener('click', function() {
+      const description = this.querySelector('.description');
+      const arrow = this.querySelector('.arrow');
+
+      description.classList.toggle('open');
+      arrow.classList.toggle('rotate');
+    });
+  });
+});
+  </script>
 </section>
 
 <style>
   section{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(10px, 10vh, 40px);
-
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
   }
-.transition {
-  transition: all 0.25s ease-in-out;
+  .list{
+    width: 100%;
+    padding: 0;
+  }
+  .item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    margin: 0 10px 20px 0;
 }
 
-.flipIn {
-  animation: flipdown 0.5s ease both;
+.title {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.no-select {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 14px;
 }
 
+.description {
+  display: none;
+  margin-top: 5px;
+  font-size: 16px;
+}
 
-h2 {
-  font-size: 2em;
-  line-height: 34px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.open {
   display: block;
-  margin: 0;
-  cursor: pointer;
-  user-select: none;
+  background-color: var(--black);
   color: var(--white);
+  margin: 20px 0;
+  padding: 10px;
 }
+.rotate{
+  transform: rotate(90deg);
 
-/* Paragraph Styles */
-p {
-  
-  color: var(--white);
-  font-size: .9em;
-  line-height: 26px;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  max-height: 800px;
-  transition: all 0.25s ease-in-out;
-  opacity: 1;
-  transform: translate(0, 0);
-  margin-top: 14px;
-  z-index: 2;
-}
-
-/* List Styles */
-ul {
-  width: 100%;
-  min-width: 30vw;
-  list-style: none;
-  perspective: 900;
-  padding: 0;
-  margin: 0;
-  
-}
-
-li {
-  font-family: "Melodrama", sans-serif;
-  font-style: italic;
-  position: relative;
-  padding: 0;
-  margin: 0;
-  opacity: .4;
-  padding-bottom: 4px;
-  padding-top: 18px;
-  border-bottom: 1px solid var(--white);
-  transition: ease .6s;
-
-}
-li:hover{
-  opacity: 1;
-}
-
-li:nth-of-type(1) {
-  animation-delay: 0.5s;
-}
-
-li:nth-of-type(2) {
-  animation-delay: 0.75s;
-}
-
-li:nth-of-type(3) {
-  animation-delay: 1.0s;
-}
-
-li:last-of-type {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-li i {
-  position: absolute;
-  transform: translate(-6px, 0);
-  margin-top: 16px;
-  right: 0;
-}
-
-li i:before,
-li i:after {
-  content: "";
-  transition: all 0.25s ease-in-out;
-  position: absolute;
-  background-color: var(--white);
-  width: 3px;
-  height: 9px;
-}
-
-li i:before {
-  transform: translate(-2px, 0) rotate(45deg);
-}
-
-li i:after {
-  transform: translate(2px, 0) rotate(-45deg);
-}
-
-input[type="checkbox"] {
-  position: absolute;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;input{
-}
-}
-
-input[type="checkbox"]:checked ~ p {
-  margin-top: 0;
-  max-height: 0;
-  opacity: 0;
-  transform: translate(0, 50%);
-}
-
-input[type="checkbox"]:checked ~ i:before {
-  transform: translate(2px, 0) rotate(45deg);
-}
-
-input[type="checkbox"]:checked ~ i:after {
-  transform: translate(-2px, 0) rotate(-45deg);
-}
-
-
-@media (max-width: 700px) {
-  li{
-    font-size: .7em;
-  }
 }
 </style>

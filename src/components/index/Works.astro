@@ -14,9 +14,21 @@
     <div class="work work3">
         <img src="/works/3.svg" alt="" />
     </div>
+    <a href="/trabajos">
+        <div class="work more">
+            <h3>Más trabajos</h3>
+        </div>
+    </a>
 </section>
 
 <style>
+    a:link, :visited, :hover, :active{
+        color: inherit;
+    }
+    a{
+        text-decoration: none;
+        color: none;
+    }
     section {
         display: flex;
         flex-direction: column;
@@ -26,20 +38,39 @@
         width: 100%;
         gap: 100px;
     }
+    .more{
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.3px);
+        -webkit-backdrop-filter: blur(7.3px);
+        h3{
+            font-size: 30px;
+            font-weight: 400;
+        }
+    }
+    .more:hover{
+        transition: ease-in-out .4s;
+        background-color: var(--black);
+        h3{
+            color: var(--white);
+        }
+    }
     .work {
-        height: 80vh;
-        width: calc(80vh * 1.6018);
+        height: calc(50vw / 1.618);
+        width: 50vw;
         animation: slide-up ease-in-out;
         animation-timeline: view();
-        animation-range: entry 0vh cover 50vh;
-        border-radius: 8px;
+        animation-range: entry 0vh cover 60vh;
 
     }
     img {
         height: 100%;
         width: 100%;
         background: #00000054;
-        border-radius: 8px;
 
     }
     .work1 {
@@ -63,7 +94,8 @@
             width: 90vw;
             animation: slide-up ease-in-out;
             animation-timeline: view();
-            animation-range: entry 0vh cover 50vh;
+            animation-delay: -2s;
+            animation-range: entry 0vh cover 20%;
 
         }
         .work1 {
@@ -71,5 +103,17 @@
             background-size: cover;
             background-position: center center;
         }
+        .more{
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        border: solid 1px;
+        background: transparent;
+        h3{
+            font-size: 30px;
+            font-weight: 400;
+        }
+    }
     }
 </style>

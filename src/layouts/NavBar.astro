@@ -65,19 +65,19 @@ import Logo from '../components/interface/Logo.astro';
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     height: 100px;
     z-index: 3;
-    border-radius: 8px;
     animation: fondo linear both;
     animation-timeline: scroll(block);
     animation-range: entry 0vh cover 10vh;
   }
   .lista{
-    width: 40%;
+    width: 50%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-right: 5%;
     align-items: center;
   }
   .menu-regular {
@@ -107,9 +107,6 @@ import Logo from '../components/interface/Logo.astro';
 .a{
   margin-left: 5%;
   height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   animation: fondo-color linear both;
   animation-timeline: scroll(block);
   animation-range: entry 0% cover 1vh;
@@ -128,8 +125,9 @@ import Logo from '../components/interface/Logo.astro';
 }
 @keyframes fondo {
   to {
+    height: 70px;
     margin-top: 1em;
-    width: 80%;
+    width: 60%;
     background: var(--white);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
@@ -138,24 +136,41 @@ import Logo from '../components/interface/Logo.astro';
 }
 
 @media (max-width: 700px) {
+  .lista{
+    display: none;
+  }
   nav{
+    background-color: var(--white);
     height: 70px;
     display: flex;
+    animation: fondo-mobile linear both;
+    animation-timeline: scroll(block);
     animation-range: entry 0vh cover 10vh;
   }
+  @keyframes fondo-mobile {
+  to {
+    margin: 1em 0;
+    width: 50%;
+    transform: translateX(-5%);
+    background: var(--white);
+  }
+}
   .a{
-    height: 30px;
+    display: flex;
+    align-items: center;
+    filter: invert(1);
   }
   .menu-regular{
     display: none;
   }
-
   .hamburguesa{
-    width: 25%;
-    height: 70px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: 100%;
   }
 
 

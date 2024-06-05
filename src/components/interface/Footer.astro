@@ -55,7 +55,6 @@
 	}
 	
   .footer__container {
-    background-color: #00000076;
     height: 100%;
     width: 100%;
     display: flex;
@@ -118,22 +117,23 @@
   }
   @media (max-width: 700px) {
     .footer {
-    background: url("/works/fondo.gif") no-repeat fixed;
-    background-size: cover;
-    background-position: center center;
+    height: 500px;
+    background-color: var(--black);
+    background-size: contain;
+    background-position: bottom center;
     overflow-x: hidden;
     animation: fade-up-traslate linear both;
     animation-range: entry 0vh cover 100vh;
-    margin-top: 50px;
+    margin-top: 0;
 	}
   .footer__container {
-    background-color: #00000076;
     height: 100%;
     width: 100%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     
   }
   
@@ -149,10 +149,13 @@
   }
   
   .footer__list-item {
+    color: var(--white);
     list-style: none;
   }
   
   .footer__list-link {
+    color: var(--white);
+
     text-decoration: none;
     color: inherit;
     transition: color 0.25s;
@@ -163,6 +166,7 @@
   }
   
   .company__info {
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,6 +177,9 @@
     gap: 1rem;
   }
   .company__description{
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: 1.5px;
     font-size: 16px;
     text-align: center;
   }
@@ -184,9 +191,12 @@
   
   .company__info ul {
     flex-direction: row;
+    color: var(--white);
+
   }
   
   .copyright {
+    color: var(--white);
     margin-top: auto;
     font-size: 16px;
   }

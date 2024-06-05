@@ -1,34 +1,26 @@
 ---
 
 ---
-<form action="/hecho" method="post">
-    <div style="display: flex; justify-content: space-between;">
-        <div style="width: calc(50% - 4px);"> <!-- Resta 4px para compensar el margen -->
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div style="width: calc(50% - 4px);"> <!-- Resta 4px para compensar el margen -->
-            <label for="nombre_empresa">Empresa:</label>
-            <input type="text" id="nombre_empresa" name="nombre_empresa" required>
-        </div>
+
+<form data-netlify="true" netlify-honeypot="bot-field" name="Contacto" method="POST" action="/success">
+  <input type="hidden" name="bot-field" />
+  <div style="display: flex; justify-content: space-between;">
+    <div style="width: calc(50% - 4px);">
+      <label for="nombre">Nombre: <input type="text" id="nombre" name="nombre" required></label>
     </div>
-
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" required>
-
-    <label for="telefono">Número de Celular:</label>
-    <input type="text" id="telefono" name="telefono" required>
-
-    <label for="servicios">Tipo de Servicios:</label>
-    <select id="servicios" name="servicios">
-        <option value="branding">Branding</option>
-        <option value="web_development">Web Development</option>
-        <option value="seo">SEO</option>
-    </select>
-    <input type="submit" value="Enviar">
+    <div style="width: calc(50% - 4px);">
+      <label for="nombre_empresa">Empresa: <input type="text" id="nombre_empresa" name="empresa" required></label>
+    </div>
+  </div>
+  <label for="email">Email:<input type="email" id="email" name="email" required></label>
+  <label for="telefono">Número de Celular: <input type="text" id="telefono" name="telefono" required></label>
+  <button type="submit">Enviar</button>
 </form>
 
 <style>
+    *{
+        color: white;
+    }
     #servicios{
         background-color: transparent;
         font-weight: bold;
@@ -55,7 +47,7 @@
             font-style: italic;
             font-size: 16px;
         }
-        input[type="text"], textarea {
+        input[type="text"], textarea, input[type="email"] {
             width: 100%; /* Resta 16px para compensar el padding */
             padding: 8px;
             margin-bottom: 10px;
@@ -68,7 +60,10 @@
         input[type="text"]:hover, textarea:hover {
             border-color: var(--white); /* Cambia el color del borde al hacer hover */
         }
-        input[type="submit"] {
+        input[type="email"]:hover, textarea:hover {
+            border-color: var(--white); /* Cambia el color del borde al hacer hover */
+        }
+        button {
             font-family: 'IBM Plex Serif', sans-serif;
             letter-spacing: 2px;
             width: 50%;

@@ -1,0 +1,261 @@
+---
+
+---
+
+<section>
+    <a href="/servicios">
+        <div class="card">
+            <img src="/gif/historia.gif" alt="">
+            <h1>
+                <span>Contamos </span> buenas historias<span></span>
+            </h1>
+            <ul>
+                <li>Branding</li>
+                <li>Estrategia de Marca</li>
+                <li>Comunity managment</li>
+                <li>Diseño</li>
+                <li>...</li>
+            </ul>
+        </div>
+        <div class="ver-mas">Ver más <span class="ver-mas-flecha">→</span></div>
+    </a>
+    <a href="/servicios">
+        <div class="card b">
+            <img src="/gif/solucion.gif" alt="">
+            <h1>
+                <span>Diseñamos </span>soluciones
+            </h1>
+            <ul>
+                <li>Diseño Web</li>
+                <li>Desarrollo Web</li>
+                <li>SEO</li>
+                <li>MetaAds</li>
+                <li>Google Ads</li>
+                <li>Consultoría</li>
+                <li>...</li>
+
+            </ul>
+        </div>
+        <div class="ver-mas-b">Ver más <span class="ver-mas-flecha">→</span></div>
+    </a>
+    <a href="/servicios">
+        <div class="card">
+            <img src="/gif/viejo.gif" alt="">
+            <h1>
+                <span>Un poco de</span> aire fresco
+            </h1>
+            <ul>
+                <li>Rediseño</li>
+                <li>Reposicionamiento</li>
+                <li>Consultoría</li>
+                <li>Workshops</li>
+                <li>...</li>
+            </ul>
+        </div>
+        <div class="ver-mas">Ver más <span class="ver-mas-flecha">→</span></div>
+
+    </a>
+</section>
+
+<style>
+    section{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    a{
+        text-decoration: none;
+        color: none;
+        position: relative;
+    }
+    .ver-mas{
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        bottom: 5%;
+        right: 10%;
+        font-family: 'CabinetGrotesk-Variable', sans-serif;
+        font-size: 16px;
+        color: var(--white);
+        span{
+            color: var(--white);
+            transition: ease-in-out 0.5s;
+            opacity: 0;
+        }
+    }
+    .ver-mas-b{
+        color: var(--black);
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        bottom: 5%;
+        left: 5%;
+        font-family: 'CabinetGrotesk-Variable', sans-serif;
+        font-size: 16px;
+        span{
+            color: var(--black);
+            transition: ease-in-out 0.5s;
+            opacity: 0;
+        }
+    }
+    a:hover{
+        .ver-mas, .ver-mas-b{
+            span{
+                opacity: 1;
+                transform: translateX(10px)
+            };
+        }
+    }
+    .card{
+        position: relative;
+        height: calc(100vw / 1.618);
+        min-height: 310px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        background: var(--black);
+        color: var(--white);
+        h1{
+            color: var(--white);
+            margin-left: 5%;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 23px;
+            span{
+                color: var(--white);
+                font-family: 'CabinetGrotesk-Variable', sans-serif;
+                font-weight: 300;
+                font-style: normal;
+                font-size: 24px;
+            }
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 90%;
+            justify-content: flex-start;
+            margin: 0;
+            padding: 0;
+            gap: 10px;
+            margin-bottom: 20px;
+            margin-left: 5%;
+            font-family: 'CabinetGrotesk-Variable', sans-serif;
+        }
+        li{
+            font-size: 16px;
+            border: solid 1px var(--white);
+            padding: 5px;
+            border-radius: 5%;
+        }
+        img{
+            position: absolute;
+            top: calc(-1*(40vw / 1.6018)/2);
+            right: 5%;
+            rotate: -8deg;
+            height: calc((200px / 1.6018));
+            width: 200px;
+            
+        animation: fade linear both;
+            animation-timeline: view();
+            animation-range: entry 49% cover 50%;
+        }
+    }
+    .b{
+        background: var(--white);
+        color: var(--black);
+        h1{
+            color: var(--black);
+            span{
+                color: var(--black);
+            }
+        }
+        img{
+            top: calc(-1*(40vw / 1.6018)/2);
+            left: 5%;
+            rotate: 8deg;
+        }
+        li{
+            border: solid 1px var(--black);
+        }
+    }
+    @media (min-width: 700px) {
+
+    a{
+        width: 50vw;
+    }
+    .ver-mas{
+        font-size: 24px;
+    }
+    .ver-mas-b{
+        font-size: 24px;
+    }
+    a:hover{
+        .ver-mas, .ver-mas-b{
+            span{
+                opacity: 1;
+                transform: translateX(20px)
+            };
+        }
+    }
+    .card{
+        height: calc(50vw / 1.618);
+        min-height: 400px;
+        width: 100%;
+        h1{
+            font-size: 34px;
+            span{
+                font-size: 36px;
+            }
+        }
+        ul{
+            gap: 14px;
+        }
+        li{
+            font-size: 18px;
+            border-radius: 2%;
+        }
+        img{
+            position: absolute;
+            top: calc(-1*(100% / 1.6018)/4);
+            right: 5%;
+            rotate: -8deg;
+            height: calc((400px / 1.6018));
+            width: 400px;
+            
+        animation: fade linear both;
+            animation-timeline: view();
+            animation-range: entry 49% cover 50%;
+        }
+    }
+    .b{
+        background: var(--white);
+        color: var(--black);
+        
+        h1{
+            color: var(--black);
+            span{
+                color: var(--black);
+            }
+        }
+        img{
+            top: calc(-1*(40vw / 1.6018)/3);
+            left: 5%;
+            rotate: 8deg;
+        }
+        li{
+            border: solid 1px var(--black);
+        }
+    }
+    }
+</style>
