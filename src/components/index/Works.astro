@@ -3,29 +3,45 @@
 ---
 
 <section>
-    <div class="work-contain">
         <div class="work work1">
-            <img src="/works/1.svg" alt="" />
+            <p class="numero">01</p>
+            <h1 class="titulo">Empresas nuevas</h1>
+            <p class="subtitulo">
+                Lanzamos tu marca desde cero, nos especializamos en crear proyectos escalables y de alto impacto.
+                <span>Seremos tu aliado más importante en tus proyectos nuevos</span>
+            </p>
         </div>
-    </div>
-    <div class="work work2">
-        <img src="/works/2.svg" alt="" />
-    </div>
-    <div class="work work3">
-        <img src="/works/3.svg" alt="" />
-    </div>
-    <a href="/trabajos">
-        <div class="work more">
-            <h3>Más trabajos</h3>
+        <div class="work work2">
+            <p class="numero">02</p>
+            <h1 class="titulo">Empresas emergentes</h1>
+            <p class="subtitulo">
+                Impulsamos tu crecimiento con servicios de branding, marketing, desarrollo web.
+                <span>Ideal si se necesita aumentar eficiencia, rentabilidad y escalar tu negocio.</span>
+            </p>
+        </div>
+        <div class="work work3">
+            <p class="numero">03</p>
+            <h1 class="titulo">Empresas establecidas</h1>
+            <p class="subtitulo">
+                Revitalizamos tu marca o web, capacitamos empleados y te asesoramos para resolver tus necesidades.
+                <span>Pensado para empresas ya establecidas que no quieren quedarse atrás.</span>
+            </p>
+        </div>
+    <a href="/servicios">
+        <div class="more">
+            <h3>Más servicios</h3>
         </div>
     </a>
 </section>
 
 <style>
-    a:link, :visited, :hover, :active{
+    a:link,
+    :visited,
+    :hover,
+    :active {
         color: inherit;
     }
-    a{
+    a {
         text-decoration: none;
         color: none;
     }
@@ -38,7 +54,9 @@
         width: 100%;
         gap: 100px;
     }
-    .more{
+    .more {
+        height: calc(50vw / 1.618);
+        width: 50vw;
         display: flex;
         align-content: center;
         align-items: center;
@@ -47,16 +65,26 @@
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(7.3px);
         -webkit-backdrop-filter: blur(7.3px);
-        h3{
+        h3 {
             font-size: 30px;
             font-weight: 400;
         }
     }
-    .more:hover{
-        transition: ease-in-out .4s;
-        background-color: var(--black);
-        h3{
+    .more:hover {
+        transition: ease-in-out 0.2s;
+        background-color: var(--black) !important;
+        h3 {
             color: var(--white);
+        }
+    }
+    .work:hover{
+        transition: ease-in-out 0.2s;
+        background-color: var(--white);
+        h1,h2, p {
+            span{
+                color: var(--black);
+            }
+            color: var(--black);
         }
     }
     .work {
@@ -65,30 +93,84 @@
         animation: slide-up ease-in-out;
         animation-timeline: view();
         animation-range: entry 0vh cover 60vh;
-
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background: var(--black);
+        .titulo {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 500;
+        }
+        .subtitulo{
+            color: var(--white);
+            padding: 0;
+            margin: 0;
+            max-width: 90%;
+            text-align: left;
+            span{
+                font-family: 'CabinetGrotesk-Variable', sans-serif;
+                font-weight: bold;
+                color: var(--white);
+            }
+        }
+        .numero {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: normal;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            margin: 0;
+            padding: 0;
+        }
     }
     img {
         height: 100%;
         width: 100%;
         background: #00000054;
-
     }
     .work1 {
-        background: url("/works/bemder.gif") no-repeat;
+        /* background: url("/works/bemder.gif") no-repeat;
         background-size: cover;
-        background-position: center -60px;
+        background-position: center -60px; */
     }
     .work2 {
-        background: url("/works/jake.gif") no-repeat;
-        background-size: cover;
-        background-position: center center;
     }
     .work3 {
-        background: url("/works/tocadisco.gif") no-repeat;
-        background-size: cover;
-        background-position: center center;
     }
     @media (max-width: 700px) {
+    .work:hover {
+        transform: scale(1.05);
+    }
+    .numero {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .titulo {
+        font-size: 18px;
+        margin: 10px 0;
+        transition: opacity 0.3s ease;
+    }
+    .subtitulo {
+        font-size: 14px;
+        margin: 10px 0;
+        display: none;
+        transition: opacity 0.3s ease;
+    }
+    .work:hover .titulo,
+    .work:active .titulo {
+        opacity: 0;
+    }
+    .work:hover .subtitulo,
+    .work:active .subtitulo {
+        display: block;
+        opacity: 1;
+    }
+    
         .work {
             height: calc(90vw / 1.6018);
             width: 90vw;
@@ -96,24 +178,38 @@
             animation-timeline: view();
             animation-delay: -2s;
             animation-range: entry 0vh cover 20%;
-
-        }
-        .work1 {
-            background: url("/works/bemder.gif") no-repeat;
-            background-size: cover;
-            background-position: center center;
+            border: solid 1px;
+            .titulo{
+                font-size: 32px;
+            }
+            .subtitulo{
+                font-size: 16px;
+            }
+            .numero{
+                font-size: 32px;
+            }
         }
         .more{
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        border: solid 1px;
-        background: transparent;
-        h3{
-            font-size: 30px;
-            font-weight: 400;
+            height: calc(90vw / 1.6018);
+            width: 90vw;
+        }
+        .work1 {
+            /* background: url("/works/bemder.gif") no-repeat;
+            background-size: cover;
+            background-position: center center; */
+        }
+        .more {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px;
+            background: transparent;
+            h3 {
+                font-size: 30px;
+                font-weight: 400;
+            }
         }
     }
-    }
 </style>
+   
