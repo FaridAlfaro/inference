@@ -10,11 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.4.15"
+    "astro": "^4.12.2"
   },
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }

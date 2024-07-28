@@ -3,15 +3,19 @@ import Layout from "../layouts/Layout.astro"
 import Header from "../layouts/Header.astro"
 import Acordion from "../components/servicios/Acordion.astro"
 import Footer from "../components/interface/Footer.astro"
+import CardSlider from "../components/index/CardSlider.astro"
 ---
 
 <Layout title="Servicios" scroll="auto">
     <Header title="Servicios"/>
     <section class="contain">
+        <section class="sliders">
+            <CardSlider/>
+        </section>
         <section class="section1">
             <div class="title">
-                <h1>Nuestros Servicios</h1>
-                <h2>Descubre como podemos ayudarte</h2>
+                <h1>Pymes</h1>
+                <h2>Queremos ayudar a las pequeñas y medianas empresas a construir sus marcas y escalar sus ventas. </h2>
             </div>
             <Acordion/>
         </section>
@@ -20,15 +24,17 @@ import Footer from "../components/interface/Footer.astro"
 </Layout>
 
 <style>
-    .contain{
-        height: auto;
+    .sliders{
         width: 100vw;
-        background: transparent;
-        color: var(--black);
+    }
+    .contain{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
     
     .section1{
-        
         height: 100vh;
         min-height: 120vh;
         display: flex;
@@ -39,6 +45,7 @@ import Footer from "../components/interface/Footer.astro"
         animation: fade-up linear both;
         animation-timeline: view();
         animation-range: entry 20% cover 40%;
+        
     }
     .title{
         width: 100%;
@@ -52,16 +59,16 @@ import Footer from "../components/interface/Footer.astro"
         background-repeat: no-repeat;
         background-position-y: 0%;
         background-size: 40%;
+        
     }
     h1{
         font-size: clamp(20px, 6vh, 50px);
         text-align: right;
         margin: 0 0 1rem 0;
-        filter: invert(1);
+        color: var(--white);
     }
     h2{
         font-family: sans-serif;
-        filter: invert(1);
         text-align: right;
         font-size: clamp(16px, 10vh, 30px);
         font-style: italic;
@@ -69,6 +76,8 @@ import Footer from "../components/interface/Footer.astro"
         opacity: .5;
         margin: 0;
         padding: 0;
+        color: var(--white);
+
     }
     .section2{
         height: 100vh;
