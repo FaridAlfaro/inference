@@ -4,15 +4,27 @@
 
 <section>
     <div class="angry-grid">
-        <div id="item-0"></div>
-        <div id="item-1"></div>
-        <div id="item-2"></div>
-        <div id="item-3"></div>
+        <div id="item-0">
+            <p class="numero">01</p>
+            <h3 class="titulo">Contanos de una marca que creas que necesita nuestros servicios</h3>
+        </div>
+        <div id="item-1">
+            <p class="numero b">02</p>
+            <h3 class="titulo b">Analizamos sus necesidades</h3>
+        </div>
+        <div id="item-2">
+            <p class="numero b">03</p>
+            <h3 class="titulo b">Contacamos con ellos</h3>
+        </div>
+        <div id="item-3">
+            <p class="numero">04</p>
+            <h3 class="titulo">Recibís una comisión</h3>
+        </div>
     </div>
-    <a href="/nosotros">
+    <a href="/pymes">
         <div class="about">
             <h3 class="filosofia">
-                Nuestra forma de trabajar 
+                Postula una empresa
             </h3>
             <span class="flecha">
                 →
@@ -40,9 +52,24 @@
         gap: 0px;
         height: 50vh;
     }
-
+    .numero{
+        font-weight: 700;
+        font-size: 24px;
+        margin-left: 5%;
+        color: var(--white);
+    }
+    .titulo{
+        margin-left: 5%;
+        font-weight: lighter;
+        color: var(--white);
+        font-family: sans-serif;
+        width: 90%;
+    }
+    .b{
+        color: var(--black);
+    }
     #item-0 {
-        background-image: url(/gif/Luna.gif);
+        background-color: var(--black);
         background-size: cover;
         grid-row-start: 1;
         grid-column-start: 1;
@@ -50,8 +77,7 @@
         grid-column-end: 1;
     }
     #item-1 {
-        background-color: rgb(3, 139, 3);
-        background-image: url(/gif/homero.gif);
+        background-color: var(--white);
         background-size: cover;
         background-repeat: no-repeat;
         background-size: 180px;
@@ -62,7 +88,7 @@
         grid-column-end: 2;
     }
     #item-2 {
-        background-image: url(/gif/pato.gif);
+        background-color: var(--white);
         background-size: 120px;
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -71,7 +97,7 @@
         grid-row-end: 2;
     }
     #item-3 {
-        background-image: url(/gif/fondo.gif);
+        background-color: var(--black);
         background-size: cover;
         background-position: 50%;
         grid-row-start: 2;
@@ -82,7 +108,7 @@
 
     .about {
         height: 50vh;
-        background-image: url(/gif/PYh.gif);
+        background-image: url(/gif/fondocolores.gif);
         background-size: cover;
         background-color: var(--black);
         background-repeat: no-repeat;

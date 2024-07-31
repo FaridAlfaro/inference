@@ -1,13 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import NavBar from "../layouts/NavBar.astro"
-import Form from "../components/contacto/Form.astro"
+import FormPyme from "../components/pyme/FormPyme.astro"
 ---
 <Layout title="Contacto" scroll="auto">
     <NavBar scrollC="" scrollE="200%"/>
-    <div class="contacto">
+    <section class="contacto">
+        <div class="intro">
+            <h1 class="intro_title">Programa Pymes</h1>
+            <p class="intro_texto">
+¿Conoces una pequeña o mediana empresa que podría beneficiarse de una mejora en su presencia online o en su infraestructura digital? ¡Te escuchamos! Con nuestro Programa PYMES, puedes ayudar a tu empresa favorita a crecer y, además, ganar una comisión por ello.
+
+<br><br>¿Cómo funciona? Simplemente postula la empresa que crees que necesita nuestros servicios y nuestro equipo se encargará del resto.  <br><br>Analizaremos sus necesidades, nos pondremos en contacto y, si deciden trabajar con nosotros, ¡tú recibirás una comisión por tu recomendación!
+
+<br><br>Es una manera genial de contribuir al éxito de negocios locales mientras te llevas una recompensa por tu esfuerzo. ¡No pierdas la oportunidad de hacer crecer tu red y ganar con nosotros!
+
+<br><br>¡Contáctanos hoy mismo!
+            </p>
+        </div>
       <div class="titular">
-        <h1><span class="s1">¿Listo</span> <br>para<span class="s2"> trabajar</span><br><span class="s3">juntos?</span></h1>
+        <h1><span class="s1">Postula tu<span class="s2"> PYME</span><br><span class="s3">amiga</span></h1>
         <div class="correo"><a href="mailto:adjustabledevelopment@gmail.com?Subject=Interesado%20en%20el%20servicio">adjustabledevelopment@gmail.com</a></div>
         <div class="correo"><a href="https://wa.me/3512401402/?text=Hola!%20Quiero%20trabajar%20con%20ustedes">              +54 9 351 240-1402
         </a></div>
@@ -21,12 +33,22 @@ import Form from "../components/contacto/Form.astro"
           </div>
           <img src="/gif/homero.gif" alt="">
         </div>
-        <Form/>
+        <FormPyme/>
       </div>  
-    </div>
+    </section>
 </Layout>
 
 <style>
+    .intro{
+        margin-top: 100px;
+    }
+    .intro_title{
+        color: var(--white);
+    }
+    .intro_texto{
+        color: var(--white);
+        font-size: 18px;
+    }
   .titular{
     font-size: clamp(20px, 5vh, 40px);
     h1{
